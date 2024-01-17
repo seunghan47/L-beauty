@@ -1,0 +1,50 @@
+header {
+  font-size: 1rem;
+}
+
+.flex_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.flex_container input {
+  padding-left: 1rem;
+  width: 40rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+.search,
+.search img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1px solid black;
+}
+
+.merchandise_container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.merchandise_container p:hover {
+  transition: text-decoration 0.3s;
+  cursor: pointer;
+  color: #cacaca;
+  transition-delay: 0.3s;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(51, 106, 134, 255);
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #7397a3;
+  text-decoration: underline;
+}

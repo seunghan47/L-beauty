@@ -1,0 +1,43 @@
+.footer {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+}
+
+.flex_container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 1rem;
+}
+
+.footer_flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_flex button {
+  background-color: rgba(169, 169, 169, 0.195);
+  color: white;
+  width: 10rem;
+  padding: 1rem;
+}
+
+.footer_flex input {
+  background-color: black;
+  color: white;
+  width: 20rem;
+  padding: 1rem;
+}
+
+.footer_flex img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+.footer hr {
+  border: 0.1rem solid #ffffff2f;
+  margin: 1rem 0;
+  width: 100%;
+}

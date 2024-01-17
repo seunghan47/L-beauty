@@ -1,11 +1,30 @@
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProductDetail from "./pages/ProductDetail";
+import ErrorPage from "./pages/ErrorPage";
+import Products from "./pages/Products";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import Home from "./pages/Home";
+import Root from "./pages/Root";
+import "./App.css";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "products", element: <Products /> },
+      { path: "products/:productId", element: <ProductDetail /> },
+      { path: "login", element: <Signup /> },
+      { path: "signin", element: <Signin /> },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div>
-      <h1>Hi</h1>
-    </div>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

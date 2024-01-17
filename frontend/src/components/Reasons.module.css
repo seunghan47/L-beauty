@@ -1,0 +1,14 @@
+.flex_items {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_items p {
+  font-size: 1rem;
+}
+
+.flex_items img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
