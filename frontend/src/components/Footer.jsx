@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -13,10 +14,18 @@ const Footer = () => {
         </div>
         <div className={styles.footer_flex}>
           <h3>GET DIRECTION</h3>
-          <p>ABOUT US</p>
-          <p>TERMS OF SERVICE</p>
-          <p>REFUND POLICY</p>
-          <p>JOBS</p>
+          <Link to='/about'>
+            <p>ABOUT US</p>
+          </Link>
+          <Link to='/terms'>
+            <p>TERMS OF SERVICE</p>
+          </Link>
+          <Link to='/refund'>
+            <p>REFUND POLICY</p>
+          </Link>
+          <Link to='/jobs'>
+            <p>JOBS</p>
+          </Link>
         </div>
         <div className={styles.footer_flex}>
           <h3>NEWSLETTER</h3>

@@ -1,0 +1,49 @@
+.jobs_container {
+  text-align: center;
+  align-items: center;
+  width: 50%;
+  margin: 5rem auto;
+  padding: 5rem 5rem;
+  border: 1px solid black;
+}
+
+.span_paragraph {
+  font-size: 1.5rem;
+}
+
+.label_input {
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.label_input p {
+  font-size: 1.5rem;
+  display: inline;
+}
+
+.label_input input {
+  width: 50%;
+  height: 1.5rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.location input,
+.location p {
+  width: 5%;
+  display: inline;
+}
+
+.button {
+  width: 20rem;
+  height: 3rem;
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(51, 106, 134, 255);
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgba(66, 122, 150, 255);
+}
