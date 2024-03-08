@@ -17,6 +17,7 @@ hr {
 .flex_container {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   list-style: none;
 }
 

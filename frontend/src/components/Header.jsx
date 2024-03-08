@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [menu, setMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setMenu((prev) => !prev);
+  };
+
   return (
     <header>
       <div className={styles.flex_container}>

@@ -30,18 +30,38 @@ const Footer = () => {
         </div>
         <div className={styles.footer_flex}>
           <h3>FIND US HERE TOO</h3>
-          <img
-            src='facebook.png'
-            alt='facebook'
-          />
-          <img
-            src='instagram.png'
-            alt='instagram'
-          />
-          <img
-            src='google.jpeg'
-            alt='google'
-          />
+          <a
+            href='https://www.facebook.com/jbeautycolumbus'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img
+              src='facebook.png'
+              alt='facebook'
+            />
+          </a>
+
+          <a
+            href='https://www.instagram.com/jbeauty_ga/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img
+              src='instagram.png'
+              alt='instagram'
+            />
+          </a>
+
+          <a
+            href='https://www.google.com/search?q=lbeauty&sca_esv=9fc63cc73e9e59b8&sxsrf=ACQVn0_lwftAp_AyNpB2jUkePeouKSrFkw%3A1709744478056&source=hp&ei=XqHoZZeGAZbdkPIP36-liA0&iflsig=ANes7DEAAAAAZeivbsI0zIdvKXZSS7Zr2kfgPtYBXpJH&ved=0ahUKEwiXrZPCjuCEAxWWLkQIHd9XCdEQ4dUDCBc&uact=5&oq=lbeauty&gs_lp=Egdnd3Mtd2l6IgdsYmVhdXR5MgoQIxiABBiKBRgnMg0QABiABBgKGLEDGMkDMgcQABiABBgKMgsQABiABBiKBRiSAzIKEAAYgAQYChixAzIHEAAYgAQYCjIHEAAYgAQYCjIQEC4YgAQYChjHARivARiOBTIHEAAYgAQYCjINEAAYgAQYChixAxiDAUjJB1AAWJYGcAB4AJABAJgBiAGgAbAFqgEDNS4yuAEDyAEA-AEBmAIHoALEBcICBBAjGCfCAhAQLhiABBiKBRhDGMcBGK8BwgIOEC4YgAQYsQMYxwEY0QPCAg4QLhiABBjHARivARiOBcICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMYgwEYxwEY0QPCAggQABiABBixA8ICCxAuGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGMcBGK8BwgIQEC4YgAQYChixAxjHARjRA8ICDRAuGIAEGMcBGNEDGArCAgoQABiABBjJAxgKwgINEC4YgAQYxwEYrwEYCsICEBAuGAoYrwEYxwEYgAQYjgWYAwCSBwMzLjSgB_9X&sclient=gws-wiz#lrd=0x88f3336ac0741755:0x338ec7e7dcf50888,1,,,,'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img
+              src='google.jpeg'
+              alt='google'
+            />
+          </a>
         </div>
       </div>
       <hr />
