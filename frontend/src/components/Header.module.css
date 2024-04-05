@@ -4,8 +4,9 @@ header {
 
 .flex_container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 2rem;
 }
 .flex_container input {
   padding-left: 1rem;
@@ -19,6 +20,16 @@ header {
   height: 2.5rem;
   width: 2.5rem;
   border: 1px solid black;
+}
+
+.nav_container {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+  font-size: 20px;
+  white-space: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .merchandise_container {
@@ -47,4 +58,42 @@ a:focus {
   text-decoration: none;
   color: #7397a3;
   text-decoration: underline;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 4em;
+  height: 0.5em;
+  margin: 5px 0;
+  background-color: black;
+}
+
+@media (max-width: 880px) {
+  .nav_container {
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    width: 100%;
+    padding: 3rem 1rem;
+    position: absolute;
+    top: 139.5px;
+    z-index: 1;
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+  .close {
+    display: none;
+  }
+
+  input {
+    display: none;
+  }
 }
