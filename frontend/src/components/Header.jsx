@@ -27,13 +27,13 @@ const Header = () => {
         />
         <nav className={`${styles.nav_container} ${menu ? undefined : styles.close}`}>
           <p className={styles.headerLinks}>
-            <Link to='/login'>Sign Up</Link>
-          </p>
-          <p className={styles.headerLinks}>
             <Link to='/signin'>Sign In</Link>
           </p>
           <p className={styles.headerLinks}>
             <Link to='/cart'>Cart </Link>
+          </p>
+          <p className={`${styles.headerLinks} ${styles.want}`}>
+            <Link to='/add'>I WANT</Link>
           </p>
         </nav>
         <div

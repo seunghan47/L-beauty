@@ -7,6 +7,7 @@ import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Jobs from "./pages/Jobs";
+import Add from "./pages/Add";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "login", element: <Signup /> },
       { path: "signin", element: <Signin /> },
       { path: "jobs", element: <Jobs /> },
+      { path: "add", element: <Add /> },
     ],
   },
 ]);

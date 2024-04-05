@@ -10,16 +10,10 @@ header {
 }
 .flex_container input {
   padding-left: 1rem;
-  width: 40rem;
+  width: 35%;
   height: 2.5rem;
   font-size: 1rem;
-}
-
-.search,
-.search img {
-  height: 2.5rem;
-  width: 2.5rem;
-  border: 1px solid black;
+  align-items: baseline;
 }
 
 .nav_container {
@@ -57,7 +51,6 @@ a:hover,
 a:focus {
   text-decoration: none;
   color: #7397a3;
-  text-decoration: underline;
 }
 
 .hamburger {
@@ -73,7 +66,23 @@ a:focus {
   background-color: black;
 }
 
-@media (max-width: 880px) {
+.want {
+  background-color: rgba(51, 106, 134, 255);
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.want a {
+  color: black;
+}
+
+.want a:hover {
+  background-color: rgba(51, 106, 134, 0.5);
+  color: white;
+}
+
+@media (max-width: 1000px) {
   .nav_container {
     background-color: black;
     color: white;
@@ -93,7 +102,7 @@ a:focus {
     display: none;
   }
 
-  input {
+  .flex_container input {
     display: none;
   }
 }
