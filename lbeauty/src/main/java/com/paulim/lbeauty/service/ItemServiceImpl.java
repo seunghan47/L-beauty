@@ -14,12 +14,11 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public Item getItemByName(String name) {
-        itemRepository.equals(1);
         return null;
     }
 
     @Override
     public double getPriceByName(String name) {
-        return 0;
+        return 1.0;
     }
 }
