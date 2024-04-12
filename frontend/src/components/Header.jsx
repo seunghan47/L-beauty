@@ -29,11 +29,11 @@ const Header = () => {
           <p className={styles.headerLinks}>
             <Link to='/signin'>Sign In</Link>
           </p>
-          <p className={styles.headerLinks}>
+          {/* <p className={styles.headerLinks}>
             <Link to='/cart'>Cart </Link>
-          </p>
+          </p> */}
           <p className={`${styles.headerLinks} ${styles.want}`}>
-            <Link to='/add'>I WANT</Link>
+            <Link to='/add'>Item Suggestions</Link>
           </p>
         </nav>
         <div

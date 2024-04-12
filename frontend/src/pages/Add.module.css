@@ -1,6 +1,12 @@
+.title {
+  text-align: center;
+  font-size: 20px;
+}
+
 .title h1 {
   font-size: 5rem;
   margin-top: 3rem;
+  margin-bottom: 0;
 }
 
 .form {
@@ -8,7 +14,7 @@
   justify-content: center;
   flex-wrap: wrap;
   display: flex;
-  border: black 1rem;
+  border: black 2px solid;
   gap: 4rem;
 }
 
@@ -25,6 +31,7 @@
 .form_element label {
   font-size: 1.5rem;
   display: block;
+  margin-bottom: 5px;
 }
 
 .form_element input {
@@ -40,6 +47,7 @@
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .form_container button:hover {

@@ -14,9 +14,13 @@ const add = () => {
     <>
       <span className={styles.title}>
         <h1>ITEM SUGGESTION</h1>
+        <p>Have an item you want to get in the store? fill out this form and we will get it as soon as we can!</p>
       </span>
 
-      <Form className={styles.form}>
+      <Form
+        className={styles.form}
+        onSubmit={handleSubmit}
+      >
         <img
           src='form.jpg'
           alt=''
@@ -37,7 +41,7 @@ const add = () => {
             />
           </div>
           <div className={styles.form_element}>
-            <label htmlFor=''>File image (Optional)</label>
+            <label htmlFor='file'>Files image (Optional)</label>
             <input type='file' />
           </div>
           <div className={styles.form_element}>
@@ -47,7 +51,7 @@ const add = () => {
               min={day}
             />
           </div>
-          <button onSubmit={handleSubmit}>Submit!</button>
+          <button>Submit!</button>
         </div>
       </Form>
     </>

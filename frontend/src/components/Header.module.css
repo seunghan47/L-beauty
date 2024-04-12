@@ -74,12 +74,11 @@ a:focus {
 }
 
 .want a {
-  color: black;
+  color: white;
 }
 
 .want a:hover {
-  background-color: rgba(51, 106, 134, 0.5);
-  color: white;
+  color: black;
 }
 
 @media (max-width: 1000px) {
