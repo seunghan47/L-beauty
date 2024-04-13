@@ -5,11 +5,6 @@ const add = () => {
   const date = new Date();
   const day = date.toISOString().split("T")[0];
 
-  const handleSubmit = () => {
-    alert("we will get back to you shortly!");
-    console.log("hello");
-  };
-
   return (
     <>
       <span className={styles.title}>
@@ -19,7 +14,7 @@ const add = () => {
 
       <Form
         className={styles.form}
-        onSubmit={handleSubmit}
+        onSubmit={postingForm}
       >
         <img
           src='form.jpg'
@@ -59,3 +54,26 @@ const add = () => {
 };
 
 export default add;
+
+async function postingForm(e) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const data = Object.fromEntries(fd.entries());
+
+  try {
+    const response = await fetch("www.asdfasdf.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response) {
+      throw new Error("error posting");
+    }
+    const responseData = await response.json();
+    console.log(responseData);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
