@@ -14,10 +14,6 @@ public class NewItemServiceImpl implements NewItemService{
 
     @Autowired
     NewItemRepository newItemRepository;
-
-    @Autowired
-    JavaMailSender mailSender;
-
     @Override
     public NewItem saveNewItem(NewItem item) {
         return newItemRepository.save(item);
@@ -28,17 +24,5 @@ public class NewItemServiceImpl implements NewItemService{
         return newItemRepository.findAll();
     }
 
-    public void sendEmail(String toEmail,
-                          String subject,
-                          String body) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("paulslim47@gmail.com");
-        message.setTo(toEmail);
-        message.setText(body);
-        message.setSubject(subject);
 
-        mailSender.send(message);
-
-        System.out.println("Mail sent successfully...");
-    }
 }
