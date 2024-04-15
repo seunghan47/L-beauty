@@ -1,6 +1,7 @@
 package com.paulim.lbeauty.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -10,6 +11,9 @@ public class Item {
     private long id;
     private String name;
     private double cost;
+
+    public Item() {
+    }
 
     public long getId() {
         return id;
