@@ -7,13 +7,20 @@ import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Jobs from "./pages/Jobs";
-import Add from "./pages/Add";
 import "./App.css";
+import Add from "./pages/Add";
+import Terms from "./pages/Terms";
+import RefundPolicy from "./pages/RefundPolicy";
+import ScrollToTop from "./util/ScrollToTop";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <Root>
+        <ScrollToTop />
+      </Root>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
@@ -23,12 +30,18 @@ const router = createBrowserRouter([
       { path: "signin", element: <Signin /> },
       { path: "jobs", element: <Jobs /> },
       { path: "add", element: <Add /> },
+      { path: "terms", element: <Terms /> },
+      { path: "refund", element: <RefundPolicy /> },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <RouterProvider router={router}>
+      <ScrollToTop />
+    </RouterProvider>
+  );
 }
 
 export default App;

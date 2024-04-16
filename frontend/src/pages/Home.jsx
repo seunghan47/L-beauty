@@ -51,17 +51,17 @@ const Home = () => {
       <div className={styles.brands}>
         <h1>Search by brands</h1>
         <ul className={styles.flex_container}>
-          {dummy_cards.map((itme) => (
+          {dummy_cards.map((itme, index) => (
             <Cards
+              key={index}
               image={itme.image}
               description={itme.id}
             />
           ))}
         </ul>
-        <hr />
       </div>
 
-      <div className={styles.featured_items}>
+      {/* <div className={styles.featured_items}>
         <h1>Featured Items</h1>
         <ul className={styles.flex_container}>
           <li>item 1</li>
@@ -71,7 +71,7 @@ const Home = () => {
           <li>item 5</li>
         </ul>
         <hr />
-      </div>
+      </div> */}
     </>
   );
 };

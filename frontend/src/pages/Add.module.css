@@ -19,7 +19,7 @@
 }
 
 .form img {
-  width: 40%;
+  width: 50%;
   height: auto;
 }
 
@@ -52,4 +52,10 @@
 
 .form_container button:hover {
   background-color: rgba(51, 106, 134, 0.8);
+}
+
+@media (max-width: 1250px) {
+  .form img {
+    width: 80vw;
+  }
 }

@@ -1,9 +1,25 @@
-import React from "react";
-import { Form } from "react-router-dom";
+import React, { useState } from "react";
 import styles from "./Add.module.css";
-const add = () => {
+
+const url = "http://localhost:8080/newItem/save";
+
+const Add = () => {
   const date = new Date();
   const day = date.toISOString().split("T")[0];
+  const [formdata, setFormData] = useState({
+    name: "",
+    company: "",
+    file: "",
+    date: "",
+    email: "",
+  });
+
+  function inputChange(identifier, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [identifier]: value,
+    }));
+  }
 
   return (
     <>
@@ -12,7 +28,7 @@ const add = () => {
         <p>Have an item you want to get in the store? fill out this form and we will get it as soon as we can!</p>
       </span>
 
-      <Form
+      <form
         className={styles.form}
         onSubmit={postingForm}
       >
@@ -25,6 +41,19 @@ const add = () => {
             <label htmlFor='name'>Name of the Product (Required)</label>
             <input
               type='text'
+              value={formdata.name}
+              onChange={(event) => inputChange("name", event.target.value)}
+              name='name'
+              required
+            />
+          </div>
+          <div className={styles.form_element}>
+            <label htmlFor='email'>Enter your email (Required, so we can get back to you!)</label>
+            <input
+              type='text'
+              value={formdata.email}
+              onChange={(event) => inputChange("email", event.target.value)}
+              name='email'
               required
             />
           </div>
@@ -33,27 +62,35 @@ const add = () => {
             <input
               type='text'
               placeholder='name of company'
+              onChange={(event) => inputChange("company", event.target.value)}
+              name='company'
             />
           </div>
           <div className={styles.form_element}>
             <label htmlFor='file'>Files image (Optional)</label>
-            <input type='file' />
+            <input
+              type='file'
+              onChange={(event) => inputChange("file", event.target.value)}
+              name='file'
+            />
           </div>
           <div className={styles.form_element}>
             <label htmlFor='date'>Date you need the item by (Optional)</label>
             <input
               type='date'
               min={day}
+              onChange={(event) => inputChange("date", event.target.value)}
+              name='date'
             />
           </div>
           <button>Submit!</button>
         </div>
-      </Form>
+      </form>
     </>
   );
 };
 
-export default add;
+export default Add;
 
 async function postingForm(e) {
   e.preventDefault();
@@ -61,7 +98,7 @@ async function postingForm(e) {
   const data = Object.fromEntries(fd.entries());
 
   try {
-    const response = await fetch("www.asdfasdf.com", {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,11 +106,11 @@ async function postingForm(e) {
       body: JSON.stringify(data),
     });
     if (!response) {
-      throw new Error("error posting");
+      throw new Error("failed sending form !! line 98");
     }
     const responseData = await response.json();
     console.log(responseData);
   } catch (error) {
-    console.log(error.message);
+    console.log("error: " + error.message);
   }
 }

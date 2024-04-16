@@ -1,0 +1,26 @@
+.refund {
+  text-align: left;
+  padding: 0 6rem;
+  margin-bottom: 8rem;
+}
+
+.refund h1 {
+  font-size: 90px;
+  text-align: center;
+}
+
+.refund h2 {
+  font-size: 60px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.refund p {
+  font-size: 22px;
+}
+
+@media (max-width: 880px) {
+  .refund {
+    padding: 0;
+  }
+}
