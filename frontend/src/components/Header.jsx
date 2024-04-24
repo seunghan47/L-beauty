@@ -8,7 +8,7 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [emptyQuery, setEmptyQuery] = useState(true);
-
+  const [inputFocused, setInputFocused] = useState(false);
   const data = useLoaderData();
 
   const toggleNav = () => {
@@ -24,7 +24,16 @@ const Header = () => {
     }
 
     const result = data.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+
     setSearchResult(result.slice(0, 5));
+  };
+
+  const handleFocus = () => {
+    setInputFocused(true);
+  };
+
+  const handleBlur = () => {
+    setInputFocused(false);
   };
 
   return (
@@ -41,9 +50,11 @@ const Header = () => {
             type='text'
             placeholder='Search by key word or item name. . .'
             onChange={handleInputChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
           />
-          <div className={styles.search_results}>
-            {!emptyQuery && <SearchResult results={searchResult}></SearchResult>}
+          <div className={`${styles.search_results} ${inputFocused ? styles.focused : undefined}`}>
+            {!emptyQuery && inputFocused && <SearchResult results={searchResult}></SearchResult>}
           </div>
         </div>
         <nav className={`${styles.nav_container} ${menu ? undefined : styles.close}`}>

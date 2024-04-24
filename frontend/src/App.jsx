@@ -12,6 +12,7 @@ import Add from "./pages/Add";
 import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import ScrollToTop from "./util/ScrollToTop";
+import AboutUs from "./pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "products", element: <Products /> },
+      { path: "/about", element: <AboutUs /> },
       { path: "products/:productId", element: <ProductDetail /> },
       { path: "login", element: <Signup /> },
       { path: "signin", element: <Signin /> },

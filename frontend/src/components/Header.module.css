@@ -14,7 +14,7 @@ header {
 }
 
 .search_container input {
-  width: 45vw;
+  width: 40vw;
   height: 2.5rem;
   padding-left: 1rem;
   font-size: 1rem;
@@ -25,7 +25,10 @@ header {
   list-style: none;
   padding-left: 1rem;
   background-color: white;
-  width: 45vw;
+  width: 40vw;
+}
+
+.search_results.focused {
   border: black 1px solid;
 }
 

@@ -1,0 +1,9 @@
+.search_result li {
+  padding: 10px;
+}
+
+.search_result li:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+  font-weight: bold;
+}
