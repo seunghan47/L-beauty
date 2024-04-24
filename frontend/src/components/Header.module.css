@@ -8,12 +8,25 @@ header {
   align-items: center;
   padding: 0 2rem;
 }
-.flex_container input {
-  padding-left: 1rem;
-  width: 35%;
+
+.search_container {
+  position: relative;
+}
+
+.search_container input {
+  width: 45vw;
   height: 2.5rem;
+  padding-left: 1rem;
   font-size: 1rem;
-  align-items: baseline;
+}
+
+.search_results {
+  position: absolute;
+  list-style: none;
+  padding-left: 1rem;
+  background-color: white;
+  width: 45vw;
+  border: black 1px solid;
 }
 
 .nav_container {

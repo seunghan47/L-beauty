@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-
+import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
+import SearchResult from "./SearchResult";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+  const [emptyQuery, setEmptyQuery] = useState(true);
+
+  const data = useLoaderData();
 
   const toggleNav = () => {
     setMenu((prev) => !prev);
+  };
+
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    if (query === "") {
+      setEmptyQuery(true);
+    } else {
+      setEmptyQuery(false);
+    }
+
+    const result = data.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
+    setSearchResult(result.slice(0, 5));
   };
 
   return (
@@ -19,19 +36,20 @@ const Header = () => {
             alt=''
           />
         </Link>
-        <label htmlFor='search'></label>
-        <input
-          type='text'
-          placeholder='Search by key word or item name. . .'
-          // className={`${menu ? styles.close : undefined}`}
-        />
+        <div className={styles.search_container}>
+          <input
+            type='text'
+            placeholder='Search by key word or item name. . .'
+            onChange={handleInputChange}
+          />
+          <div className={styles.search_results}>
+            {!emptyQuery && <SearchResult results={searchResult}></SearchResult>}
+          </div>
+        </div>
         <nav className={`${styles.nav_container} ${menu ? undefined : styles.close}`}>
           <p className={styles.headerLinks}>
             <Link to='/signin'>Sign In</Link>
           </p>
-          {/* <p className={styles.headerLinks}>
-            <Link to='/cart'>Cart </Link>
-          </p> */}
           <p className={`${styles.headerLinks} ${styles.want}`}>
             <Link to='/add'>Item Suggestions</Link>
           </p>

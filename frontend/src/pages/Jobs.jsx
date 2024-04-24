@@ -84,7 +84,8 @@ const Jobs = () => {
           </div>
           <div className={styles.label_input}>
             <label htmlFor='message'>
-              <p>Message: </p>
+              <p style={{ marginBottom: "16px" }}>Message: </p>
+              <br />
               <textarea
                 type='text'
                 id='message'

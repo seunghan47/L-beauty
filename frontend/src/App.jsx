@@ -16,12 +16,17 @@ import ScrollToTop from "./util/ScrollToTop";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Root>
-        <ScrollToTop />
-      </Root>
-    ),
+    element: <Root />,
     errorElement: <ErrorPage />,
+    loader: async () => {
+      const response = await fetch("http://localhost:8080/Search/all");
+      if (!response.ok) {
+        throw new Error("error fetching from databse");
+      } else {
+        const responseData = await response.json();
+        return responseData;
+      }
+    },
     children: [
       { index: true, element: <Home /> },
       { path: "products", element: <Products /> },

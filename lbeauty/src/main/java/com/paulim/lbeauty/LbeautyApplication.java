@@ -10,6 +10,8 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 public class LbeautyApplication {
 	public static void main(String[] args) {
+//		System.out.println(System.getProperty("java.class.path"));
+
 		SpringApplication.run(LbeautyApplication.class, args);
 	}
 }

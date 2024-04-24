@@ -8,8 +8,9 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+    String UPC;
     String name;
-    double price;
+    String price;
 
     public Inventory() {
     }
@@ -39,16 +40,24 @@ public class Inventory {
         this.name = name;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
+    public String getUPC() {
+        return UPC;
+    }
 
-    public Inventory(String name, double price) {
+    public void setUPC(String UPC) {
+        this.UPC = UPC;
+    }
+
+    public Inventory(String name, String price, String UPC) {
         this.name = name;
         this.price = price;
+        this.UPC = UPC;
     }
 }
