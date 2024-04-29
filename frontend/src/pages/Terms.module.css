@@ -1,0 +1,19 @@
+.terms {
+  padding: 5rem;
+  background-color: #efefef;
+}
+
+.terms p {
+  font-size: 20px;
+}
+
+.terms h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.terms h3 {
+  font-size: 35px;
+  margin-bottom: 0;
+  color: red;
+}

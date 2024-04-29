@@ -9,6 +9,10 @@ header {
   padding: 0 2rem;
 }
 
+.about {
+  background-color: #efefef;
+}
+
 .search_container {
   position: relative;
 }

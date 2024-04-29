@@ -1,6 +1,5 @@
 .about_page {
   font-size: 22px;
-  padding: 5rem;
 }
 
 .about_page h1 {
@@ -11,4 +10,14 @@
 .about_page h2 {
   text-align: center;
   font-size: 40px;
+}
+
+.about {
+  background-color: #efefef;
+  padding: 5rem;
+}
+
+.expect {
+  background-color: white;
+  padding: 5rem;
 }
