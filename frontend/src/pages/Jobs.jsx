@@ -1,7 +1,5 @@
 import React from "react";
-// import { Form } from "react-router-dom";
 import styles from "./Jobs.module.css";
-//name email phone location message
 const Jobs = () => {
   return (
     <>
