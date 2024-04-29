@@ -20,7 +20,8 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: async () => {
-      const response = await fetch("http://localhost:8080/Search/all");
+      const response = await fetch("http://3.82.194.52:8080/Search/all");
+      // const response = await fetch("http://localhost:8080/Search/all");
       if (!response.ok) {
         throw new Error("error fetching from databse");
       } else {
