@@ -19,6 +19,6 @@ public class SearchController {
 
     @GetMapping("/all")
     public List<Inventory> getAll() {
-        return inventoryService.getAllItems("/Users/polim/Desktop/personalProject/freelancing/e-commerce/lbeauty/src/main/resources/static/inventory.csv");
+        return inventoryService.getAllItems();
     }
 }
