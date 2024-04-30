@@ -59,7 +59,7 @@ const Header = () => {
         </div>
         <nav className={`${styles.nav_container} ${menu ? undefined : styles.close}`}>
           <p className={styles.headerLinks}>
-            <Link to='/signin'>Sign In</Link>
+            <Link to='/jobs'>Careers</Link>
           </p>
           <p className={`${styles.headerLinks} ${styles.want}`}>
             <Link to='/add'>Item Suggestions</Link>

@@ -29,6 +29,10 @@
   font-size: 1.5rem;
 }
 
+.label_input textarea {
+  width: 80%;
+}
+
 .location input,
 .location p {
   width: 5%;

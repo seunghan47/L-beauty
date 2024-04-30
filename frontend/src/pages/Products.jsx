@@ -1,24 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const DUMMY_PRODUCTS = [
-  { id: 1, name: "weave" },
-  { id: 2, name: "wig" },
-  { id: 3, name: "nails" },
-  { id: 4, name: "skincare" },
-];
+import styles from "./Products.module.css";
 
 const Products = () => {
   return (
-    <div>
+    <div className={styles.product_page}>
       <h1>this is products</h1>
-      <ul>
-        {DUMMY_PRODUCTS.map((product) => (
-          <li key={product.id}>
-            <Link to={`/products/${product.id}`}>{product.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.product_container}>
+        <div className={styles.product_left}>
+          <img
+            src='notfound.jpeg'
+            alt=''
+          />
+        </div>
+        <div className={styles.product_right}>
+          <p style={{ backgroundColor: "#FBD9D3" }}>NEW</p>
+          <h3>Name</h3>
+          <h3>$Price</h3>
+          <h3>UPC</h3>
+        </div>
+      </div>
     </div>
   );
 };
