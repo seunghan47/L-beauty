@@ -33,7 +33,9 @@ const Header = () => {
   };
 
   const handleBlur = () => {
-    setInputFocused(false);
+    setTimeout(() => {
+      setInputFocused(false);
+    }, 150);
   };
 
   return (
