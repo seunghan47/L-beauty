@@ -1,6 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 import styles from "./Products.module.css";
 
 const Products = () => {
+  const items = useLoaderData();
+  console.log(items);
   return (
     <div className={styles.product_page}>
       <h1>this is products</h1>

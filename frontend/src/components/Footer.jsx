@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -45,7 +46,7 @@ const Footer = () => {
             rel='noreferrer'
           >
             <img
-              src='facebook.png'
+              src='/facebook.png'
               alt='facebook'
             />
           </a>
@@ -56,7 +57,7 @@ const Footer = () => {
             rel='noreferrer'
           >
             <img
-              src='instagram.png'
+              src='/instagram.png'
               alt='instagram'
             />
           </a>
@@ -67,7 +68,7 @@ const Footer = () => {
             rel='noreferrer'
           >
             <img
-              src='google.jpeg'
+              src='/google.jpeg'
               alt='google'
             />
           </a>

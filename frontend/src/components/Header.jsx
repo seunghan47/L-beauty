@@ -43,7 +43,7 @@ const Header = () => {
       <div className={styles.flex_container}>
         <Link to='/'>
           <img
-            src='lbeauty.jpeg'
+            src='/lbeauty.jpeg'
             alt=''
           />
         </Link>

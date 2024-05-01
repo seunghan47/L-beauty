@@ -1,0 +1,5 @@
+.product_detail_page {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
