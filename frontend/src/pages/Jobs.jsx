@@ -91,7 +91,7 @@ const Jobs = () => {
               />
             </label>
           </div>
-          <button className={styles.button}>Submit Form!</button>
+          <button className={styles.button}>Submit</button>
         </form>
       </div>
     </>

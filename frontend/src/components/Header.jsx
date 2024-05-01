@@ -78,9 +78,7 @@ const Header = () => {
       </div>
 
       <div className={styles.merchandise_container}>
-        <p>
-          <Link to='products'>Hair</Link>
-        </p>
+        <p>Hair</p>
         <p>Hair Care</p>
         <p>Hair Styling</p>
         <p>Tools & Brushes</p>
