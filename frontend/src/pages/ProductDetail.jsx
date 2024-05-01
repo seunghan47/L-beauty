@@ -60,6 +60,7 @@ const ProductDetail = () => {
           <ion-icon name='star'></ion-icon>
           <span className={styles.rating}>5.0 ({random})</span> write a review
         </p>
+        <button className={styles.button}>Save!</button>
       </div>
     </div>
   );

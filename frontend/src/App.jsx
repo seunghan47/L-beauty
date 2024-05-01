@@ -8,7 +8,6 @@ import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import Root, { loader as headerloader } from "./pages/Root";
 import Jobs from "./pages/Jobs";
-import "./App.css";
 import Add from "./pages/Add";
 import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
@@ -24,7 +23,6 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "products/:upc", element: <ProductDetail />, loader: itemLoader },
-      { path: "products", element: <Products /> },
       { path: "about", element: <AboutUs /> },
       { path: "login", element: <Signup /> },
       { path: "signin", element: <Signin /> },

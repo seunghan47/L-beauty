@@ -6,7 +6,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  gap: 1rem;
 }
 
 .about {
@@ -18,7 +19,7 @@ header {
 }
 
 .search_container input {
-  width: 40vw;
+  width: 30vw;
   height: 2.5rem;
   padding-left: 1rem;
   font-size: 1rem;
@@ -29,7 +30,7 @@ header {
   list-style: none;
   padding-left: 1rem;
   background-color: white;
-  width: 40vw;
+  width: 30vw;
 }
 
 .search_results.focused {
@@ -81,7 +82,7 @@ a:focus {
 
 .bar {
   width: 4em;
-  height: 0.5em;
+  height: 0.2rem;
   margin: 5px 0;
   background-color: black;
 }
@@ -98,10 +99,10 @@ a:focus {
 }
 
 .want a:hover {
-  color: black;
+  color: lightgray;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .nav_container {
     background-color: black;
     color: white;
