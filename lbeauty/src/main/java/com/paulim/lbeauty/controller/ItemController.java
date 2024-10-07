@@ -15,9 +15,6 @@ public class ItemController {
     @Autowired
     public ItemService itemService;
 
-//    @PostMapping("/add")
-//    public ResponseEntity<Item> addItem(@RequestBody Item item){
-//        itemServiceImpl.
     @GetMapping("/working")
     public String working() {
         return "return working as intended";

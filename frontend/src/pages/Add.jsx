@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Add.module.css";
+import { useNavigate } from "react-router-dom";
 
 // const url = "http://localhost:8080/newItem/save";
 const url = "http://3.82.194.52:8080/newItem/save";
 
 const Add = () => {
+  const navigate = useNavigate();
   const date = new Date();
   const day = date.toISOString().split("T")[0];
   const [formdata, setFormData] = useState({
@@ -20,6 +22,31 @@ const Add = () => {
       ...prev,
       [identifier]: value,
     }));
+  }
+
+  async function postingForm(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = Object.fromEntries(fd.entries());
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response) {
+        throw new Error("failed sending form !! line 41");
+      }
+      const responseData = await response.json();
+      alert("Form received, We will get back to you shortly");
+      navigate("/");
+      console.log(responseData);
+    } catch (error) {
+      console.log("error: " + error.message);
+    }
   }
 
   return (
@@ -92,26 +119,3 @@ const Add = () => {
 };
 
 export default Add;
-
-async function postingForm(e) {
-  e.preventDefault();
-  const fd = new FormData(e.target);
-  const data = Object.fromEntries(fd.entries());
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    if (!response) {
-      throw new Error("failed sending form !! line 98");
-    }
-    const responseData = await response.json();
-    console.log(responseData);
-  } catch (error) {
-    console.log("error: " + error.message);
-  }
-}
