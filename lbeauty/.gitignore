@@ -6,6 +6,9 @@ target/
 
 ### credentials ###
 **/src/main/**/application.properties
+# Ignore the application.properties file
+src/main/resources/application.properties
+
 
 ### STS ###
 .apt_generated
