@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./Add.module.css";
 import { useNavigate } from "react-router-dom";
 
-// const url = "http://localhost:8080/newItem/save";
-const url = "http://3.82.194.52:8080/newItem/save";
+const url = "http://localhost:8080/newItem/save";
+// const url = "http://3.82.194.52:8080/newItem/save";
 
 const Add = () => {
   const navigate = useNavigate();
