@@ -2,7 +2,6 @@ package com.paulim.lbeauty.repository;
 
 import com.paulim.lbeauty.model.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
