@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Jobs.module.css";
 const Jobs = () => {
+  const [form, setForm] = useState({});
+
   return (
     <>
       <div className={styles.jobs_container}>

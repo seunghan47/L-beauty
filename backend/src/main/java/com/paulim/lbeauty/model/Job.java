@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -15,6 +18,8 @@ public class Job {
     private String email;
     private String name;
     private String phoneNumber;
+
+//    @ElementCollection
     private String location;
     private String message;
 

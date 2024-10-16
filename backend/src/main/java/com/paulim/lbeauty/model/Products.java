@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Table
 @Getter
 @Setter
-public class Item {
+public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,10 +18,10 @@ public class Item {
     private long upc;
 
 
-    public Item() {
+    public Products() {
     }
 
-    public Item(String name, double price, long upc) {
+    public Products(String name, double price, long upc) {
         this.name = name;
         this.price = price;
         this.upc = upc;
