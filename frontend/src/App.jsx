@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { loader as itemLoader } from "./pages/ProductDetail";
 import ProductDetail from "./pages/ProductDetail";
 import ErrorPage from "./pages/ErrorPage";
-import Products from "./pages/Products";
+// import Products from "./pages/Products";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
