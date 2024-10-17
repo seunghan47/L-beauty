@@ -14,14 +14,14 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private double price;
-    private long upc;
+    private String price;
+    private String upc;
 
 
     public Products() {
     }
 
-    public Products(String name, double price, long upc) {
+    public Products(String name, String price, String upc) {
         this.name = name;
         this.price = price;
         this.upc = upc;

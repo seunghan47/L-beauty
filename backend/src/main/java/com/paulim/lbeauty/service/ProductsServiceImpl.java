@@ -5,6 +5,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import com.paulim.lbeauty.model.Inventory;
 import com.paulim.lbeauty.model.Products;
 import com.paulim.lbeauty.repository.InventoryRepository;
+import com.paulim.lbeauty.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -17,17 +18,30 @@ import java.util.List;
 public class ProductsServiceImpl {
 
     @Autowired
-    private InventoryRepository inventoryRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     private ResourceLoader resourceLoader;
 
     public void saveTsql(String filePath) {
-            try (CSVReader reader = new CSVReader(new FileReader(filePath))){
-
-            } catch (Exception e){
-                e.printStackTrace();
+        List<Products> products = new ArrayList<>();
+        try (CSVReader reader = new CSVReader(new InputStreamReader(resourceLoader.getResource("classpath:inventory.csv").getInputStream()))){
+            String [] nextRecord;
+            int start = 0;
+            while ((nextRecord = reader.readNext()) != null) {
+                if (nextRecord[0].equals("UPC")) continue;
+                Products product = new Products();
+                product.setId(start++);
+                product.setUpc(nextRecord[0]);
+                product.setName(nextRecord[1]);
+                product.setPrice(nextRecord[2]);
+                products.add(product);
             }
+            productRepository.saveAll(products);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }
