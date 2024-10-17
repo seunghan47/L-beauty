@@ -23,7 +23,7 @@ public class ProductsServiceImpl {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    public void saveTsql(String filePath) {
+    public void saveTsql() {
         List<Products> products = new ArrayList<>();
         try (CSVReader reader = new CSVReader(new InputStreamReader(resourceLoader.getResource("classpath:inventory.csv").getInputStream()))){
             String [] nextRecord;
