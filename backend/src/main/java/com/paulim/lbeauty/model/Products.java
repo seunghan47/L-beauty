@@ -18,6 +18,10 @@ public class Products {
     private String price;
     private String upc;
 
+    @Lob
+    @Column(name ="image_data", columnDefinition = "LONGBLOB")
+    private byte[] imageData;
+
 
     public Products() {
     }
