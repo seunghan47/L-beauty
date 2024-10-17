@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,12 @@ public class ProductsServiceImpl {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    public void saveToMYSQL(String filePath) {
+    public void saveTsql(String filePath) {
+            try (CSVReader reader = new CSVReader(new FileReader(filePath))){
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
 
     }
 }
