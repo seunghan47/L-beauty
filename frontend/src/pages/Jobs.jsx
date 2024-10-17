@@ -1,7 +1,46 @@
 import React, { useState } from "react";
 import styles from "./Jobs.module.css";
+import { useNavigate } from "react-router-dom";
+
+const url = "http://localhost:8081/career/addCareer";
 const Jobs = () => {
-  const [form, setForm] = useState({});
+  const navigate = useNavigate();
+  const [formdata, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  function inputChange(id, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  }
+
+  async function postingForm(e) {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      });
+      if (!response.ok) {
+        throw new Error("Failed sending form");
+      }
+      const responseData = await response.json();
+      alert("Form sent, we will get back to you shortly");
+      console.log(responseData);
+      navigate("/");
+    } catch (error) {
+      console.log("error: " + error.message);
+    }
+  }
 
   return (
     <>
@@ -10,17 +49,14 @@ const Jobs = () => {
         <span className={styles.span_paragraph}>
           <p>Fill out this form and we will get back to you as soon as we can !</p>
         </span>
-        <form
-          method='post'
-          action='/jobs'
-        >
+        <form onSubmit={postingForm}>
           <div className={styles.label_input}>
             <label htmlFor='name'>
               <p>Name: </p>
               <input
                 type='text'
-                id='name'
                 name='name'
+                onChange={(event) => inputChange("name", event.target.value)}
               ></input>
             </label>
           </div>
@@ -29,8 +65,8 @@ const Jobs = () => {
               <p>Email: </p>
               <input
                 type='text'
-                id='email'
                 name='email'
+                onChange={(event) => inputChange("email", event.target.value)}
               ></input>
             </label>
           </div>
@@ -38,58 +74,21 @@ const Jobs = () => {
             <label htmlFor='Phone'>
               <p>Phone: </p>
               <input
-                type='tel'
-                id='Phone'
-                name='Phone'
+                type='text'
+                name='phone'
+                onChange={(event) => inputChange("phone", event.target.value)}
               ></input>
             </label>
           </div>
-          <div className={styles.label_input}>
-            <label htmlFor='Location'>
-              <div className={styles.location}>
-                <p>Location Preference Below: </p>
-                <br />
-                <input
-                  type='checkbox'
-                  id='Location'
-                  name='Location'
-                />
-                <p>L Beauty</p>
-              </div>
-              <div className={styles.location}>
-                <input
-                  type='checkbox'
-                  id='Location'
-                  name='Location'
-                />
-                <p>J Beauty</p>
-              </div>
-              <div className={styles.location}>
-                <input
-                  type='checkbox'
-                  id='Location'
-                  name='Location'
-                />
-                <p>Nice Beauty</p>
-              </div>
-              <div className={styles.location}>
-                <input
-                  type='checkbox'
-                  id='Location'
-                  name='Location'
-                />
-                <p>Hi Beauty</p>
-              </div>
-            </label>
-          </div>
+
           <div className={styles.label_input}>
             <label htmlFor='message'>
               <p style={{ marginBottom: "16px" }}>Message: </p>
               <br />
               <textarea
                 type='text'
-                id='message'
                 name='message'
+                onChange={(event) => inputChange("message", event.target.value)}
               />
             </label>
           </div>
