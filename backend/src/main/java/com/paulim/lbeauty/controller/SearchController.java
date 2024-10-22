@@ -21,4 +21,6 @@ public class SearchController {
     public List<Inventory> getAll() {
         return inventoryService.getAllItems();
     }
+
+
 }

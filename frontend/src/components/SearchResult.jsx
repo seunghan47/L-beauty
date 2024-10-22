@@ -6,7 +6,7 @@ const SearchResult = ({ results }) => {
     const now = new Date().toISOString();
 
     try {
-      const response = await fetch("http://localhost:8080", {
+      const response = await fetch("http://localhost:8081/clicked/clicked", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -20,7 +20,7 @@ const SearchResult = ({ results }) => {
       if (!response.ok) {
         throw new Error('failed to send result "SearchResult.jsx"');
       }
-      console.log("Sent successfully");
+      console.log(`Sent ${result.name} successfully`);
     } catch (error) {
       console.log("error saving item");
     }
