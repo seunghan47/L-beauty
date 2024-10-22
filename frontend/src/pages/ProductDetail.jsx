@@ -71,7 +71,7 @@ export default ProductDetail;
 export async function loader() {
   const response = await fetch("http://localhost:8080/Search/all");
   if (!response.ok) {
-    console.log("hello");
+    console.log("Error fetching. \n ProductDetail.jsx");
   }
   const data = response.json();
   return data;
