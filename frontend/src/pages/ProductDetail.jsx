@@ -69,7 +69,7 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 export async function loader() {
-  const response = await fetch("http://localhost:8080/Search/all");
+  const response = await fetch("http://lbeautyBack:8080/Search/all");
   if (!response.ok) {
     console.log("Error fetching. \n ProductDetail.jsx");
   }
