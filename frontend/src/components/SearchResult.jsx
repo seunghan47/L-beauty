@@ -6,7 +6,7 @@ const SearchResult = ({ results }) => {
     const now = new Date().toISOString();
 
     try {
-      const response = await fetch("http://lbeautyBack:8080/clicked/clicked", {
+      const response = await fetch("http://localhost:8080/clicked/clicked", {
         method: "POST",
         headers: {
           "content-type": "application/json",
