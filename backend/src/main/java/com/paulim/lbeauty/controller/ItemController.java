@@ -22,7 +22,7 @@ public class ItemController {
 //    }
     @GetMapping("/getItemName")
     public String getItemName(String name) {
-        return itemService.getItemByName(name).getName();
+        return itemService.getItemByName(name)  .getName();
     }
 
     @GetMapping("/getItemPrice")
