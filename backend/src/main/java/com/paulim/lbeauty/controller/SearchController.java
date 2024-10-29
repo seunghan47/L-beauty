@@ -23,7 +23,7 @@ public class SearchController {
     }
     @GetMapping("/testing")
     public String testing() {
-        return "GET successful";
+        return "GET successful!!";
     }
 
 
