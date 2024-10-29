@@ -21,6 +21,10 @@ public class SearchController {
     public List<Inventory> getAll() {
         return inventoryService.getAllItems();
     }
+    @GetMapping("/testing")
+    public String testing() {
+        return "GET successful";
+    }
 
 
 }
