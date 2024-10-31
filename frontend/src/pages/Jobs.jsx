@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./Jobs.module.css";
 import { useNavigate } from "react-router-dom";
 
-// const url = "http://localhost:8082/career/addCareer";
-const url = "http://lbeautyBack:8082/career/addCareer";
+const url = "http://localhost:8082/career/addCareer";
+// const url = "http://lbeautyBack:8082/career/addCareer";
 const Jobs = () => {
   const navigate = useNavigate();
   const [formdata, setFormData] = useState({

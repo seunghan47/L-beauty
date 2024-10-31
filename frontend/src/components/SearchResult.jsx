@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const SearchResult = ({ results }) => {
   const sendClicks = async (result) => {
     const now = new Date().toISOString();
-    const url = "http://lbeautyBack:8082/newItem/save";
-    // const url = "http://localhost:8082/clicked/clicked"
+    // const url = "http://lbeautyBack:8082/newItem/save";
+    const url = "http://localhost:8082/clicked/clicked";
     try {
       const response = await fetch(url, {
         method: "POST",
