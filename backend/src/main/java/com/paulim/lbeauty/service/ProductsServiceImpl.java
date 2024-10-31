@@ -1,10 +1,7 @@
 package com.paulim.lbeauty.service;
 
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
-import com.paulim.lbeauty.model.Inventory;
 import com.paulim.lbeauty.model.Products;
-import com.paulim.lbeauty.repository.InventoryRepository;
 import com.paulim.lbeauty.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;

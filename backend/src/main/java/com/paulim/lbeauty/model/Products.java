@@ -3,12 +3,9 @@ package com.paulim.lbeauty.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
-@Getter
-@Setter
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +15,37 @@ public class Products {
     private String price;
     private String upc;
 
-    @Lob
-    @Column(name ="image_data", columnDefinition = "LONGBLOB")
-    private byte[] imageData;
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getUpc() {
+        return upc;
+    }
+
+    public void setUpc(String upc) {
+        this.upc = upc;
+    }
 
     public Products() {
     }

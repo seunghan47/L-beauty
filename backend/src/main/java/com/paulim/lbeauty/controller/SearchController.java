@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("Search")
 public class SearchController {
+
     @Autowired
     InventoryService inventoryService;
 

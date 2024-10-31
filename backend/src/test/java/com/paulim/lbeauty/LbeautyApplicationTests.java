@@ -8,6 +8,7 @@ class LbeautyApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

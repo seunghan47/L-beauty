@@ -12,24 +12,20 @@ public class Inventory {
     String name;
     String price;
 
-    public Inventory() {
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUPC() {
+        return UPC;
+    }
+
+    public void setUPC(String UPC) {
+        this.UPC = UPC;
     }
 
     public String getName() {
@@ -47,12 +43,17 @@ public class Inventory {
     public void setPrice(String price) {
         this.price = price;
     }
-    public String getUPC() {
-        return UPC;
+
+    public Inventory() {
     }
 
-    public void setUPC(String UPC) {
-        this.UPC = UPC;
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 
     public Inventory(String name, String price, String UPC) {
