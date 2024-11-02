@@ -26,3 +26,5 @@ export async function loader() {
     return responseData;
   }
 }
+
+//verifying jenkins configuration
