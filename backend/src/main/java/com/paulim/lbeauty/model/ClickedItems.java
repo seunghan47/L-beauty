@@ -9,8 +9,6 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
 public class ClickedItems {
     @Id
     @GeneratedValue
@@ -25,6 +23,30 @@ public class ClickedItems {
     public ClickedItems(String name, String upc, LocalDate date) {
         this.name = name;
         this.upc = upc;
+        this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUpc() {
+        return upc;
+    }
+
+    public void setUpc(String upc) {
+        this.upc = upc;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }

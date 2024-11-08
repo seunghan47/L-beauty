@@ -11,6 +11,11 @@ public class EmailServiceImpl {
     JavaMailSender mailSender;
 
     public void sendEmail(String toEmail, String subject, String body) {
+
+        if (toEmail == null || toEmail.isEmpty()) {
+            throw new IllegalArgumentException("Email address cannot be null or empty");
+        }
+
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("paulslim47@gmail.com");
         message.setTo(toEmail);

@@ -1,6 +1,8 @@
 package com.paulim.lbeauty.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -14,14 +16,6 @@ public class NewItem {
     private String company;
     private String date;
     private String email;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public NewItem() {
 
@@ -57,6 +51,14 @@ public class NewItem {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

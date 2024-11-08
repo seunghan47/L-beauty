@@ -17,6 +17,13 @@ public class CareerController {
 
     @PostMapping("/addCareer")
     public ResponseEntity<Career> addJob(@RequestBody Career career) {
+
+        System.out.println("Received Career data: " + career);
+        System.out.println("email : " + career.getEmail());
+        System.out.println("message : " + career.getMessage());
+        System.out.println("name : " + career.getName());
+        System.out.println("phone : " + career.getPhone());
+
         Career saved = careerService.save(career);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }

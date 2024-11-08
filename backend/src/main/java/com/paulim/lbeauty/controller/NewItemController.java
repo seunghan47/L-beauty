@@ -27,12 +27,19 @@ public class NewItemController {
 
     @PostMapping("/save")
     public ResponseEntity<NewItem> saveItem(@RequestBody NewItem newItem) {
+
+        String email = newItem.getEmail();
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);  // Return a bad request if the email is missing
+        }
+
         NewItem item = newItemService.saveNewItem(newItem);
         sendConfirmationEmail(newItem.getEmail(), newItem.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(item);
     }
 
     private void sendConfirmationEmail(String toEmail, String message) {
+
         String subject = "Thank you for your suggestion of " + message;
         String body = "We will see if we can get it and let you know as soon as possible! \n do not reply to this";
 
