@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SearchResult = ({ results }) => {
   const sendClicks = async (result) => {
     const now = new Date().toISOString();
-    const url = "http://3.82.48.51:8080/newItem/save";
+    const url = "http://3.82.48.51:8080/clicked/clicked";
     // const url = "http://localhost:8082/clicked/clicked";
     try {
       const response = await fetch(url, {
@@ -23,7 +23,7 @@ const SearchResult = ({ results }) => {
       }
       console.log(`Sent ${result.name} successfully`);
     } catch (error) {
-      console.log("error saving item");
+      console.log(`Failing to POST to backend. + ${url}`);
     }
   };
 
