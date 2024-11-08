@@ -25,6 +25,33 @@ export const dummy_reasons = [
   },
 ];
 
+export const trending = [
+  {
+    id: 1,
+    image: "./trending/beauty_products.jpeg",
+    head: "Beauty Products",
+    para: "Checkout our Product Selection",
+  },
+  {
+    id: 2,
+    image: "./trending/clothes.webp",
+    head: "Clothes in Season",
+    para: "Don't miss our Seasonal Clothes sales",
+  },
+  {
+    id: 3,
+    image: "./trending/jewel.jpg",
+    head: "Best Jewelry Selections",
+    para: "For any parties and formal events!",
+  },
+  {
+    id: 4,
+    image: "./trending/wigs.jpeg",
+    head: "Lace cut / Installation",
+    para: "Over 100s of selection and styles",
+  },
+];
+
 export const dummy_cards = [
   { id: 1, image: "./brands/chi.png" },
   { id: 2, image: "./brands/freetrees.jpeg" },
