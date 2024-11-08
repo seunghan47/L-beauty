@@ -69,7 +69,7 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 export async function loader() {
-  const url = "http://3.82.48.51:8080/newItem/save";
+  const url = "http://3.82.48.51:8080/Search/all";
   // const url = "http://localhost:8082/Search/all";
   const response = await fetch(url);
   if (!response.ok) {
