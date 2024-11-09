@@ -3,7 +3,9 @@ import styles from "./Jobs.module.css";
 import { useNavigate } from "react-router-dom";
 
 // const url = "http://localhost:8082/career/addCareer";
-const url = "http://3.82.48.51:8080/career/addCareer";
+// const url = "http://3.82.48.51:8080/career/addCareer";
+const url = "https://api.lbeautysupplies.com/career/addCareer";
+
 const Jobs = () => {
   const navigate = useNavigate();
   const [formdata, setFormData] = useState({
