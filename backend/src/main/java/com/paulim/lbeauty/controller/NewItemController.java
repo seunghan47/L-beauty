@@ -28,10 +28,10 @@ public class NewItemController {
     @PostMapping("/save")
     public ResponseEntity<NewItem> saveItem(@RequestBody NewItem newItem) {
 
-        String email = newItem.getEmail();
-        if (email == null || email.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);  // Return a bad request if the email is missing
-        }
+//        String email = newItem.getEmail();
+//        if (email == null || email.isEmpty()) {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+//        }
 
         NewItem item = newItemService.saveNewItem(newItem);
         sendConfirmationEmail(newItem.getEmail(), newItem.getName());
