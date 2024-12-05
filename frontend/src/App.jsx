@@ -13,6 +13,8 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import ScrollToTop from "./util/ScrollToTop";
 import AboutUs from "./pages/AboutUs";
+import { useState, useEffect } from "react";
+import MaintenancePage from "./pages/MaintenancePage";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,27 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [isBackedDown, setIsBackedDown] = useState(false);
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const response = await fetch("https://api.lbeautysupplies.com/Search/testing");
+        if (!response.ok) {
+          throw new Error("backend is temporarily Down");
+        }
+        setIsBackedDown(false);
+      } catch (error) {
+        setIsBackedDown(true);
+      }
+    };
+
+    checkBackend();
+  }, []);
+
+  if (isBackedDown) {
+    return <MaintenancePage />;
+  }
+
   return (
     <RouterProvider router={router}>
       <ScrollToTop />
