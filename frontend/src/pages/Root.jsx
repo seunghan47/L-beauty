@@ -1,17 +1,18 @@
-import React from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Loading from "../components/Loading";
 
 const Root = () => {
-  const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
+  // const navigation = useNavigation();
+  // const isLoading = navigation.state === "loading";
 
   return (
     <div>
       <Header />
-      {isLoading ? <Loading /> : <Outlet />}
+      <Suspense fallback={<Loading />} />
+      <Outlet />
       <Footer />
     </div>
   );
