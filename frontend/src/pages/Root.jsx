@@ -1,13 +1,23 @@
 import React from "react";
+import { Outlet, useNavigation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Outlet } from "react-router-dom";
 
 const Root = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
   return (
     <div>
       <Header />
-      <Outlet />
+      {isLoading ? (
+        <div className='loading-spinner'>
+          <p>Loading...</p>
+          <div className='spinner'></div>
+        </div>
+      ) : (
+        <Outlet />
+      )}
       <Footer />
     </div>
   );
