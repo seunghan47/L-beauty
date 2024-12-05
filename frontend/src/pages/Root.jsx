@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 const Root = () => {
   const navigation = useNavigation();
@@ -10,14 +11,7 @@ const Root = () => {
   return (
     <div>
       <Header />
-      {isLoading ? (
-        <div className='loading-spinner'>
-          <p>Loading...</p>
-          <div className='spinner'></div>
-        </div>
-      ) : (
-        <Outlet />
-      )}
+      {isLoading ? <Loading /> : <Outlet />}
       <Footer />
     </div>
   );

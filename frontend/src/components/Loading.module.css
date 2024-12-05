@@ -1,4 +1,4 @@
-.loading-spinner {
+.loading_spinner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,6 +6,13 @@
   height: 100vh;
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
+}
+
+.loading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #3498db;
 }
 
 .spinner {
