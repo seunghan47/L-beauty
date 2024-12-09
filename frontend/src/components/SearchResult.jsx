@@ -5,7 +5,7 @@ const SearchResult = ({ results }) => {
   const sendClicks = async (result) => {
     const now = new Date().toISOString();
     // const url = "http://3.82.48.51:8080/clicked/clicked";
-    // const url = "http://localhost:8082/clicked/clicked";
+    // const url = "http://localhost:8080/clicked/clicked";
     const url = "https://api.lbeautysupplies.com/clicked/clicked";
 
     try {

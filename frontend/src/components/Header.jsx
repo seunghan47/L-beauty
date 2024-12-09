@@ -24,7 +24,7 @@ const Header = () => {
     }
 
     try {
-      // const response = await fetch(`api.lbeautysupplies.com/Search/query?terms=${query}`);
+      // const response = await fetch(`api.lbeautysupplies.com/Search/query?term=${query}`);
       const response = await fetch(`http://localhost:8080/search/query?term=${query}`);
       if (!response.ok) {
         throw new Error("Failed to fetch from backend");
