@@ -42,10 +42,7 @@ const Header = () => {
     <header>
       <div className={styles.flex_container}>
         <Link to='/'>
-          <img
-            src='/lbeauty.jpeg'
-            alt=''
-          />
+          <img src='/lbeauty.jpeg' alt='' />
         </Link>
         <div className={styles.search_container}>
           <input
@@ -70,10 +67,7 @@ const Header = () => {
             <Link to='/add'>Item Suggestions</Link>
           </p>
         </nav>
-        <div
-          className={styles.hamburger}
-          onClick={toggleNav}
-        >
+        <div className={styles.hamburger} onClick={toggleNav}>
           <div className={styles.bar}></div>
           <div className={styles.bar}></div>
           <div className={styles.bar}></div>

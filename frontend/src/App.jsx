@@ -38,6 +38,8 @@ const router = createBrowserRouter([
 
 function App() {
   const [isBackedDown, setIsBackedDown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const checkBackend = async () => {
       try {
