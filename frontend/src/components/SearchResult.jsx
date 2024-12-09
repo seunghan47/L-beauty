@@ -32,11 +32,7 @@ const SearchResult = ({ results }) => {
   return (
     <div className={styles.search_result}>
       {results.map((result, index) => (
-        <Link
-          to={`/products/${result.upc}`}
-          key={index}
-          onClick={() => sendClicks(result)}
-        >
+        <Link to={`/products/${result.upc}`} key={index} onClick={() => sendClicks(result)}>
           <li> {result.name}</li>
         </Link>
       ))}
