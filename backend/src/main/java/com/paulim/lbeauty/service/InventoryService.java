@@ -20,4 +20,7 @@ public class InventoryService {
     public List<Inventory> getAllItems() {
         return inventoryRepository.findAll();
     }
+    public List<Inventory> findByNameContainingIgnoreCase(String name) {
+        return inventoryRepository.findByNameContainingIgnoreCase(name);
+    }
 }
