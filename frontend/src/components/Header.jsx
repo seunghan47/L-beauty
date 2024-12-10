@@ -23,6 +23,11 @@ const Header = () => {
       setEmptyQuery(false);
     }
 
+    if (query.length < 2) {
+      setSearchResult([]);
+      return;
+    }
+
     try {
       // const response = await fetch(`api.lbeautysupplies.com/Search/query?term=${query}`);
       const response = await fetch(`http://localhost:8080/search/query?term=${query}`);
