@@ -1,10 +1,12 @@
 import React from "react";
 
 const MaintenancePage = () => {
+  const date = new Date();
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>We’re Currently Under Maintenance</h1>
       <p style={styles.message}>Our site is undergoing scheduled maintenance. Please check back later.</p>
+      <p>{date.getTime()}</p>
     </div>
   );
 };
