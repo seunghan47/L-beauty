@@ -11,7 +11,6 @@ import Jobs from "./pages/Jobs";
 import Add from "./pages/Add";
 import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
-import ScrollToTop from "./util/ScrollToTop";
 import AboutUs from "./pages/AboutUs";
 import { useState, useEffect } from "react";
 import MaintenancePage from "./pages/MaintenancePage";
@@ -43,7 +42,7 @@ function App() {
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const response = await fetch("https://api.lbeautysupplies.com/Search/testing");
+        const response = await fetch("https://api.lbeautysupplies.com/search/testing");
         if (!response.ok) {
           throw new Error("backend is temporarily Down");
         }
@@ -60,11 +59,7 @@ function App() {
     return <MaintenancePage />;
   }
 
-  return (
-    <RouterProvider router={router}>
-      <ScrollToTop />
-    </RouterProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

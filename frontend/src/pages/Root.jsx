@@ -21,7 +21,7 @@ const Root = () => {
 export default Root;
 
 export async function loader() {
-  // const url = "https://api.lbeautysupplies.com/Search/all";
+  // const url = "https://api.lbeautysupplies.com/search/all";
   // const response = await fetch(url);
   // if (!response.ok) {
   //   throw new Error("error fetching from databse. check backend!");
