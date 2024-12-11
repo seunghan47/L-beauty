@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       { path: "add", element: <Add /> },
       { path: "terms", element: <Terms /> },
       { path: "refund", element: <RefundPolicy /> },
+      { path: "maintenance", element: <MaintenancePage /> },
     ],
   },
 ]);
