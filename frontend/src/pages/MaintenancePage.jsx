@@ -6,8 +6,8 @@ const MaintenancePage = () => {
     <div style={styles.container}>
       <h1 style={styles.title}>We’re Currently Under Maintenance</h1>
       <p style={styles.message}>Our site is undergoing scheduled maintenance. Please check back later.</p>
-      <p>{date.getTime()}</p>
-      <h1>Polim Dec 10</h1>
+      <p style={styles.message}>{date.getTime()}</p>
+      <h1 style={styles.message}>Polim Dec 10</h1>
     </div>
   );
 };
