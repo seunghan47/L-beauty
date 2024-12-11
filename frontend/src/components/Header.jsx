@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-// import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SearchResult from "./SearchResult";
 
@@ -9,7 +8,6 @@ const Header = () => {
   const [searchResult, setSearchResult] = useState([]);
   const [emptyQuery, setEmptyQuery] = useState(true);
   const [inputFocused, setInputFocused] = useState(false);
-  // const data = useLoaderData();
 
   const toggleNav = () => {
     setMenu((prev) => !prev);
@@ -17,9 +15,6 @@ const Header = () => {
 
   const handleInputChange = async (event) => {
     const query = event.target.value;
-
-    // console.log(query);
-
     if (query === "") {
       setEmptyQuery(true);
     } else {
@@ -32,10 +27,9 @@ const Header = () => {
     }
 
     try {
-      const response = await fetch(`https://api.lbeautysupplies.com/Search/query?term=${query}`);
+      const response = await fetch(`https://api.lbeautysupplies.com/search/query?term=${query}`);
       // const response = await fetch(`http://localhost:8080/search/query?term=${query}`);
       if (!response.ok) {
-        // console.log(query);
         throw new Error("Failed to fetch from backend");
       }
       const result = await response.json();
@@ -45,10 +39,6 @@ const Header = () => {
       console.error("Error Message: " + error.message);
       setSearchResult([]);
     }
-
-    // const result = data.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
-
-    // setSearchResult(result.slice(0, 5));
   };
 
   const handleFocus = () => {
