@@ -1,9 +1,6 @@
 package com.paulim.lbeauty.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
