@@ -1,19 +1,19 @@
 .container {
-  text-align: "center";
-  padding: "2rem";
-  font-family: "Arial, sans-serif";
-  color: "#333";
+  text-align: center;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  color: #333;
   background-color: "#f8f8f8";
-  height: "100vh";
-  display: "flex";
-  flex-direction: "column";
-  justify-content: "center";
-  align-items: "center";
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .title {
-  font-size: "2rem";
-  margin-bottom: "1rem";
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .message {
-  font-size: "1.2rem";
+  font-size: 1.2rem;
 }

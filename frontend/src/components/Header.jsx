@@ -17,6 +17,9 @@ const Header = () => {
 
   const handleInputChange = async (event) => {
     const query = event.target.value;
+
+    // console.log(query);
+
     if (query === "") {
       setEmptyQuery(true);
     } else {
@@ -32,6 +35,7 @@ const Header = () => {
       const response = await fetch(`https://api.lbeautysupplies.com/Search/query?term=${query}`);
       // const response = await fetch(`http://localhost:8080/search/query?term=${query}`);
       if (!response.ok) {
+        // console.log(query);
         throw new Error("Failed to fetch from backend");
       }
       const result = await response.json();
