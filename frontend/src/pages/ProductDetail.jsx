@@ -10,31 +10,13 @@ const ProductDetail = () => {
   return (
     <div className={styles.product_detail_page}>
       <div className={styles.product_detail_left}>
-        <img
-          src='/notfound.jpeg'
-          alt=''
-        />
+        <img src='/notfound.jpeg' alt='' />
         <div className={styles.image_row}>
-          <img
-            src='/notfound.jpeg'
-            alt='notfound'
-          />
-          <img
-            src='/notfound.jpeg'
-            alt='notfound'
-          />
-          <img
-            src='/notfound.jpeg'
-            alt='notfound'
-          />
-          <img
-            src='/notfound.jpeg'
-            alt='notfound'
-          />
-          <img
-            src='/notfound.jpeg'
-            alt='notfound'
-          />
+          <img src='/notfound.jpeg' alt='notfound' />
+          <img src='/notfound.jpeg' alt='notfound' />
+          <img src='/notfound.jpeg' alt='notfound' />
+          <img src='/notfound.jpeg' alt='notfound' />
+          <img src='/notfound.jpeg' alt='notfound' />
         </div>
       </div>
       <div className={styles.product_detail_right}>
@@ -69,7 +51,7 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 export async function loader() {
-  const url = "https://api.lbeautysupplies.com/Search/all";
+  const url = "https://api.lbeautysupplies.com/search/all";
   // const url = "http://3.82.48.51:8080/Search/all";
   // const url = "http://localhost:8082/Search/all";
   const response = await fetch(url);
