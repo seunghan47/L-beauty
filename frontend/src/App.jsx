@@ -34,25 +34,25 @@ const router = createBrowserRouter([
 function App() {
   const [isBackedDown, setIsBackedDown] = useState(false);
 
-  useEffect(() => {
-    const checkBackend = async () => {
-      try {
-        const response = await fetch("https://api.lbeautysupplies.com/health");
-        if (!response.ok) {
-          throw new Error("backend is temporarily Down");
-        }
-        setIsBackedDown(false);
-      } catch (error) {
-        setIsBackedDown(true);
-      }
-    };
+  // useEffect(() => {
+  //   const checkBackend = async () => {
+  //     try {
+  //       const response = await fetch("https://api.lbeautysupplies.com/health");
+  //       if (!response.ok) {
+  //         throw new Error("backend is temporarily Down");
+  //       }
+  //       setIsBackedDown(false);
+  //     } catch (error) {
+  //       setIsBackedDown(true);
+  //     }
+  //   };
 
-    checkBackend();
-  }, []);
+  //   checkBackend();
+  // }, []);
 
-  if (isBackedDown) {
-    return <MaintenancePage />;
-  }
+  // if (isBackedDown) {
+  //   return <MaintenancePage />;
+  // }
 
   return <RouterProvider router={router}></RouterProvider>;
 }
