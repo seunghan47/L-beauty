@@ -32,3 +32,9 @@ hr {
 .featured_items {
   background-color: rgb(245 245 245);
 }
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 5vw;
+  }
+}

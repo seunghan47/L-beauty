@@ -12,3 +12,9 @@
   height: 12rem;
   border-radius: 50%;
 }
+
+@media (max-width: 800px) {
+  .flex_items p {
+    font-size: 2vw;
+  }
+}
