@@ -21,3 +21,28 @@
   background-color: white;
   padding: 5rem;
 }
+
+@media (max-width: 800px) {
+  .about_page {
+    font-size: 3vw;
+    /* padding: 1rem 1rem; */
+    margin: 0;
+  }
+
+  .about_page h1,
+  .about_page h2 {
+    font-size: 3vw;
+  }
+
+  .about_page p {
+    font-size: 2vw;
+  }
+
+  .expect {
+    font-size: 3vw;
+  }
+
+  .expect h1 {
+    font-size: 3vw;
+  }
+}
