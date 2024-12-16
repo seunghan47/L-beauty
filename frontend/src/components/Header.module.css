@@ -36,9 +36,9 @@ header {
   width: 30vw;
 }
 
-.search_results.focused {
+/* .search_results.focused {
   border: black 1px solid;
-}
+} */
 
 .nav_container {
   display: flex;
