@@ -55,7 +55,7 @@ const Header = () => {
     <header>
       <div className={styles.flex_container}>
         <Link to='/'>
-          <img src='/lbeauty.jpeg' alt='' />
+          <img src='/lbeauty.jpeg' alt='' className={styles.logo} />
         </Link>
         <div className={styles.search_container}>
           <input

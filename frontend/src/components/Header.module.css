@@ -3,6 +3,10 @@ header {
   /* font-weight: bold; */
 }
 
+.logo {
+  width: 300px;
+}
+
 .flex_container {
   display: flex;
   justify-content: space-between;
@@ -102,6 +106,18 @@ a:focus {
 }
 
 @media (max-width: 800px) {
+  .logo {
+    width: 20vw;
+  }
+
+  .flex_container {
+    padding: 2rem 1rem;
+  }
+
+  .flex_container input {
+    width: 75%;
+  }
+
   .nav_container {
     background-color: black;
     color: white;
@@ -118,10 +134,6 @@ a:focus {
     display: flex;
   }
   .close {
-    display: none;
-  }
-
-  .flex_container input {
     display: none;
   }
 }
