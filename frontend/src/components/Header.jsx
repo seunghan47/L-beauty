@@ -66,7 +66,6 @@ const Header = () => {
             onFocus={handleFocus}
             aria-label='Search'
           />
-          <button className={styles.search_button}>Search</button>
 
           <div className={`${styles.search_results} ${inputFocused ? styles.focused : undefined}`}>
             {!emptyQuery && inputFocused && <SearchResult results={searchResult}></SearchResult>}
