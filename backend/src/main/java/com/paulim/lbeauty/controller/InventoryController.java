@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("search")
-public class SearchController {
+public class InventoryController {
 
     @Autowired
     InventoryService inventoryService;
