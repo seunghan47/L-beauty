@@ -4,20 +4,16 @@ import com.paulim.lbeauty.model.Inventory;
 import com.paulim.lbeauty.service.InventoryService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@WebMvcTest(SearchController.class)
-class SearchControllerTest {
+@WebMvcTest(InventoryController.class)
+class InventoryControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,7 +22,7 @@ class SearchControllerTest {
     private InventoryService InventoryService;
 
     @InjectMocks
-    private SearchController SearchController;
+    private InventoryController InventoryController;
     @Autowired
     private InventoryService inventoryService;
 
