@@ -34,6 +34,8 @@ header {
   padding-left: 1rem;
   background-color: white;
   width: 30vw;
+  border: black 1px solid;
+  border-top: none;
 }
 
 /* .search_results.focused {
@@ -116,6 +118,11 @@ a:focus {
 
   .flex_container input {
     width: 75%;
+  }
+
+  .search_results {
+    width: 75%;
+    font-size: 2vw;
   }
 
   .nav_container {
