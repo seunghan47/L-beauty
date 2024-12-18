@@ -10,7 +10,7 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import AboutUs from "./pages/AboutUs";
 import MaintenancePage from "./pages/MaintenancePage";
-import Collections from "./pages/collections/Collections";
+import Collections from "./components/Collections";
 
 const router = createBrowserRouter([
   {
