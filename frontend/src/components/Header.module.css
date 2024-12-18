@@ -143,6 +143,7 @@ a:focus {
 
   .hamburger {
     display: flex;
+    /* width: 1vw; */
   }
   .close {
     display: none;
