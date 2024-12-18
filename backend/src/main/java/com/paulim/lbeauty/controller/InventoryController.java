@@ -52,8 +52,8 @@ public class InventoryController {
         return ResponseEntity.ok(inventory);
     }
 
-    @GetMapping("/collection")
-    public ResponseEntity<List<Inventory>> collectionItems(String category) {
+    @GetMapping("/collection/{category}")
+    public ResponseEntity<List<Inventory>> collectionItems(@PathVariable String category) {
         List<Inventory> collection = inventoryService.findByCategory(category);
 
         return ResponseEntity.ok(collection);
