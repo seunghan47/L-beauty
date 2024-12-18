@@ -52,6 +52,13 @@ public class InventoryController {
         return ResponseEntity.ok(inventory);
     }
 
+    @GetMapping("/collection")
+    public ResponseEntity<List<Inventory>> collectionItems(String category) {
+        List<Inventory> collection = inventoryService.findByCategory(category);
+
+        return ResponseEntity.ok(collection);
+    }
+
     @ExceptionHandler
     public ResponseEntity<String> handleException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(" unexpected error has occurred " + ex.getMessage());

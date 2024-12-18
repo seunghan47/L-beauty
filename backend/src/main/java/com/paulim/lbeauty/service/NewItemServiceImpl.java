@@ -14,6 +14,7 @@ public class NewItemServiceImpl implements NewItemService{
 
     @Autowired
     NewItemRepository newItemRepository;
+
     @Override
     public NewItem saveNewItem(NewItem item) {
         return newItemRepository.save(item);

@@ -23,4 +23,9 @@ public class InventoryService {
     public List<Inventory> findByNameContainingIgnoreCase(String name) {
         return inventoryRepository.findByNameContainingIgnoreCase(name);
     }
+
+    public List<Inventory> findByCategory(String category) {
+        return inventoryRepository.findByNameContainingIgnoreCase(category);
+    }
+
 }
