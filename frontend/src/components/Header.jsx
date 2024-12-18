@@ -91,13 +91,27 @@ const Header = () => {
       </div>
 
       <div className={styles.merchandise_container}>
-        <p>Hair</p>
-        <p>Hair Care</p>
-        <p>Hair Styling</p>
-        <p>Tools & Brushes</p>
-        <p>Make-up</p>
-        <p>Skin Care</p>
-        <p>Nail</p>
+        <p>
+          <Link to='/collections/hair'>Hair</Link>
+        </p>
+        <p>
+          <Link to='/collections/hair-care'>Hair Care</Link>
+        </p>
+        <p>
+          <Link to='/collections/hair-styling'>Hair Styling</Link>
+        </p>
+        <p>
+          <Link to='/collections/tools-brushes'>Tools & Brushes</Link>
+        </p>
+        <p>
+          <Link to='/collections/make-up'>Make-up</Link>
+        </p>
+        <p>
+          <Link to='/collections/skin-care'>Skin Care</Link>
+        </p>
+        <p>
+          <Link to='/collections/nail'>Nail</Link>
+        </p>
       </div>
     </header>
   );
