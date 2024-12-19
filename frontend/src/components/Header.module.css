@@ -38,10 +38,6 @@ header {
   border-top: none;
 }
 
-/* .search_results.focused {
-  border: black 1px solid;
-} */
-
 .nav_container {
   display: flex;
   list-style: none;

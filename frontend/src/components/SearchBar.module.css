@@ -1,0 +1,22 @@
+.search_container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search_container input {
+  width: 30vw;
+  height: 2.5rem;
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+.search_results {
+  position: absolute;
+  list-style: none;
+  padding-left: 1rem;
+  background-color: white;
+  width: 30vw;
+  border: black 1px solid;
+  border-top: none;
+}

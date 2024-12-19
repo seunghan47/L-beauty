@@ -51,9 +51,9 @@ const ProductDetail = () => {
 export default ProductDetail;
 
 export async function loader() {
-  const url = "https://api.lbeautysupplies.com/search/all";
-  // const url = "http://3.82.48.51:8080/Search/all";
-  // const url = "http://localhost:8082/Search/all";
+  // const url = "https://api.lbeautysupplies.com/search/all";
+  // const url = "http://3.82.48.51:8080/search/all";
+  const url = "http://localhost:8081/search/all";
   const response = await fetch(url);
   if (!response.ok) {
     console.log("Error fetching. \n ProductDetail.jsx");
