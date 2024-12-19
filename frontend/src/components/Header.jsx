@@ -17,17 +17,15 @@ const Header = () => {
           <img src='/lbeauty.jpeg' alt='' className={styles.logo} />
         </Link>
         <SearchBar />
+
         <nav className={`${styles.nav_container} ${menu ? undefined : styles.close}`}>
-          <p className={styles.headerLinks}>
-            <Link to='/about'>About</Link>
-          </p>
-          <p className={styles.headerLinks}>
-            <Link to='/jobs'>Careers</Link>
-          </p>
-          <p className={`${styles.headerLinks} ${styles.want}`}>
-            <Link to='/add'>Item Suggestions</Link>
-          </p>
+          {navLinks.map((link) => (
+            <p key={link.path} className={`${styles.headerLinks} ${link.extraClass}`}>
+              <Link to={link.path}>{link.label}</Link>
+            </p>
+          ))}
         </nav>
+
         <div className={styles.hamburger} onClick={toggleNav}>
           <div className={styles.bar}></div>
           <div className={styles.bar}></div>
@@ -56,4 +54,10 @@ const merchandiseLinks = [
   { path: "/collections/make-up", label: "Make-up" },
   { path: "/collections/skin-care", label: "Skin Care" },
   { path: "/collections/nail", label: "Nail" },
+];
+
+const navLinks = [
+  { path: "/about", label: "About", extraClass: "" },
+  { path: "/jobs", label: "Careers", extraClass: "" },
+  { path: "/add", label: "Item Suggestions", extraClass: styles.want },
 ];
