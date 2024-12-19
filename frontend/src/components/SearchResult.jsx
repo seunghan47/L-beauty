@@ -8,7 +8,8 @@ const SearchResult = ({ results }) => {
   const sendClicks = async (result) => {
     const now = new Date().toISOString();
     // const url = "https://api.lbeautysupplies.com/clicked/clicked";
-    const url = "http://localhost:8081/clicked/clicked";
+    const url = "https://api2.lbeautysupplies.com/clicked/clicked";
+    // const url = "http://localhost:8081/clicked/clicked";
 
     try {
       const response = await fetch(url, {
