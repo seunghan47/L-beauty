@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import SearchResult from "./SearchResult";
 
-const SearchBar = ({}) => {
+const SearchBar = () => {
   const [inputFocused, setInputFocused] = useState(false);
   const [emptyQuery, setEmptyQuery] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
