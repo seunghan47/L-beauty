@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import SearchResult from "./SearchResult";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
@@ -37,30 +36,24 @@ const Header = () => {
       </div>
 
       <div className={styles.merchandise_container}>
-        <p>
-          <Link to='/collections/hair'>Hair</Link>
-        </p>
-        <p>
-          <Link to='/collections/hair-care'>Hair Care</Link>
-        </p>
-        <p>
-          <Link to='/collections/hair-styling'>Hair Styling</Link>
-        </p>
-        <p>
-          <Link to='/collections/tools-brushes'>Tools & Brushes</Link>
-        </p>
-        <p>
-          <Link to='/collections/make-up'>Make-up</Link>
-        </p>
-        <p>
-          <Link to='/collections/skin-care'>Skin Care</Link>
-        </p>
-        <p>
-          <Link to='/collections/nail'>Nail</Link>
-        </p>
+        {merchandiseLinks.map((link) => (
+          <p key={link.path}>
+            <Link to={link.path}>{link.label}</Link>
+          </p>
+        ))}
       </div>
     </header>
   );
 };
 
 export default Header;
+
+const merchandiseLinks = [
+  { path: "/collections/hair", label: "Hair" },
+  { path: "/collections/hair-care", label: "Hair Care" },
+  { path: "/collections/hair-styling", label: "Hair Styling" },
+  { path: "/collections/tools-brushes", label: "Tools & Brushes" },
+  { path: "/collections/make-up", label: "Make-up" },
+  { path: "/collections/skin-care", label: "Skin Care" },
+  { path: "/collections/nail", label: "Nail" },
+];
