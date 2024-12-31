@@ -10,4 +10,5 @@ import java.util.List;
 public interface InventoryRepository extends JpaRepository <Inventory, Long> {
     Inventory findByName(String name);
     List<Inventory> findByNameContainingIgnoreCase(String name);
+    List<Inventory> findAllByPictureUrlIsNull();
 }
