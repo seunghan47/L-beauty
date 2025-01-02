@@ -49,7 +49,6 @@ export default Header;
 const merchandiseLinks = [
   { path: "/collections/hair", label: "Hair" },
   { path: "/collections/hair-care", label: "Hair Care" },
-  { path: "/collections/hair-styling", label: "Hair Styling" },
   { path: "/collections/tools-brushes", label: "Tools & Brushes" },
   { path: "/collections/make-up", label: "Make-up" },
   { path: "/collections/skin-care", label: "Skin Care" },
