@@ -49,10 +49,10 @@ export default Header;
 const merchandiseLinks = [
   { path: "/collections/hair", label: "Hair" },
   { path: "/collections/hair-care", label: "Hair Care" },
-  { path: "/collections/tools-brushes", label: "Tools & Brushes" },
   { path: "/collections/make-up", label: "Make-up" },
   { path: "/collections/skin-care", label: "Skin Care" },
   { path: "/collections/nail", label: "Nail" },
+  { path: "/collections/tools-brushes", label: "General Merchandise" },
 ];
 
 const navLinks = [
