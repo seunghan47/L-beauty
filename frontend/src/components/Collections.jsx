@@ -16,7 +16,7 @@ const Collections = () => {
           throw new Error(`HTTP response: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
+        setProducts(data);
       } catch (error) {
         console.error("error: " + error);
         setProducts([]);
@@ -77,60 +77,3 @@ const Collections = () => {
 };
 
 export default Collections;
-
-const products = [
-  {
-    id: 1,
-    brand: "Beauty Essentials",
-    name: "Long Straight Synthetic Wig - Natural Black",
-    price: "$49.99",
-    originalPrice: "$79.99",
-    discount: "38%",
-    image: "/images/wig1.jpg",
-  },
-  {
-    id: 2,
-    brand: "Luxe Hair Care",
-    name: "Argan Oil Hair Repair Shampoo & Conditioner Set",
-    price: "$29.99",
-    originalPrice: "$39.99",
-    discount: "25%",
-    image: "/images/haircare1.jpg",
-  },
-  {
-    id: 3,
-    brand: "Thread & Weave Co.",
-    name: "100% Cotton Sewing Thread - 12 Pack (Assorted Colors)",
-    price: "$12.99",
-    originalPrice: "$18.99",
-    discount: "32%",
-    image: "/images/thread1.jpg",
-  },
-  {
-    id: 4,
-    brand: "Beauty Basics",
-    name: "Edge Control Gel for Natural Hair - 100ml",
-    price: "$8.49",
-    originalPrice: "$12.99",
-    discount: "35%",
-    image: "/images/edgecontrol.jpg",
-  },
-  {
-    id: 5,
-    brand: "Fashion Fit",
-    name: "Cotton V-Neck T-Shirt - White (Pack of 3)",
-    price: "$19.99",
-    originalPrice: "$29.99",
-    discount: "33%",
-    image: "/images/clothes1.jpg",
-  },
-  {
-    id: 6,
-    brand: "Weave Essentials",
-    name: "Brazilian Curly Hair Weave - 18 Inches",
-    price: "$69.99",
-    originalPrice: "$99.99",
-    discount: "30%",
-    image: "/images/weave1.jpg",
-  },
-];
