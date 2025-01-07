@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Collections.module.css";
 
@@ -61,6 +61,27 @@ const products = [
 
 const Collections = () => {
   const { category } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`localhost:8081/collections/${category}`);
+        if (!response.ok) {
+          throw new Error(`HTTP response: ${response.status}`);
+        }
+        const data = await response.json();
+      } catch (error) {
+        console.error("error: " + error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCollections();
+  }, [category]);
 
   return (
     <div className={styles.collectionsContainer}>
