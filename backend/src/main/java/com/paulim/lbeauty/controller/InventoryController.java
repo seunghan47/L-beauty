@@ -52,12 +52,7 @@ public class InventoryController {
         return ResponseEntity.ok(inventory);
     }
 
-    @GetMapping("/collection/{category}")
-    public ResponseEntity<List<Inventory>> collectionItems(@PathVariable String category) {
-        List<Inventory> collection = inventoryService.findByCategory(category);
 
-        return ResponseEntity.ok(collection);
-    }
 
     @ExceptionHandler
     public ResponseEntity<String> handleException(Exception ex) {

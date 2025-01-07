@@ -25,7 +25,7 @@ public class InventoryService {
     }
 
     public List<Inventory> findByCategory(String category) {
-        return inventoryRepository.findByNameContainingIgnoreCase(category);
+        return inventoryRepository.findByCategory(category);
     }
 
 }
