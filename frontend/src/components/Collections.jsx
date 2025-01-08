@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./Collections.module.css";
 
 const Collections = () => {
   const { category } = useParams();
-  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const page = parseInt(searchParams.get("page") || "0", 10);
+  const size = parseInt(searchParams.get("size") || "24", 10);
 
   useEffect(() => {
     const fetchCollections = async () => {
-      setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8081/collections/${category}`);
+        const response = await fetch(`http://localhost:8081/collections/${category}?page=${page}&size=${size}`);
         if (!response.ok) {
           throw new Error(`HTTP response: ${response.status}`);
         }
@@ -20,12 +22,16 @@ const Collections = () => {
       } catch (error) {
         console.error("error: " + error);
         setProducts([]);
-      } finally {
-        setLoading(false);
       }
     };
     fetchCollections();
-  }, [category]);
+  }, [category, size, page]);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 0) {
+      setSearchParams({ page: newPage, size });
+    }
+  };
 
   return (
     <div className={styles.collectionsContainer}>
@@ -56,7 +62,6 @@ const Collections = () => {
       </div>
 
       <div className={styles.mainContent}>
-        <h1>LAYOUT UPDATE COMING SOON</h1>
         <p>
           Showing 1 - {products.length} of {products.length} products
         </p>
@@ -70,6 +75,14 @@ const Collections = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className={styles.paginationControls}>
+          <button onClick={() => handlePageChange(page - 1)} disabled={page === 0}>
+            Previous
+          </button>
+
+          <button onClick={() => handlePageChange(page + 1)}>Next</button>
         </div>
       </div>
     </div>
