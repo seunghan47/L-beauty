@@ -3,6 +3,9 @@ package com.paulim.lbeauty.service;
 import com.paulim.lbeauty.model.Inventory;
 import com.paulim.lbeauty.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,4 +31,7 @@ public class InventoryService {
         return inventoryRepository.findByCategory(category);
     }
 
+    public Page<Inventory> findPaginatedByCategory(String category, int page, int size) {
+        return inventoryRepository.findByCategory(category, PageRequest.of(page, size));
+    }
 }
