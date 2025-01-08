@@ -4,18 +4,18 @@ const Sidebar = ({ category, brand }) => {
   return (
     <div className={styles.sidebar}>
       <div>
-        <h1>Filter By</h1>
+        <h2>Filter By</h2>
       </div>
       <div>
-        <h2>Brand</h2>
-        <ul>
+        <h3>Brand</h3>
+        {/* <ul>
           {brand.map((brand, index) => (
             <li key={index}> {brand}</li>
           ))}
-        </ul>
+        </ul> */}
       </div>
       <div>
-        <h2>Price</h2>
+        <h3>Price</h3>
         <ul>
           <li>Under $10</li>
           <li>$10 to $30</li>
@@ -25,7 +25,7 @@ const Sidebar = ({ category, brand }) => {
         </ul>
       </div>
       <div>
-        <h2>Customer Rating</h2>
+        <h3>Customer Rating</h3>
         <ul>
           <li>5 Stars</li>
           <li>4 Stars</li>

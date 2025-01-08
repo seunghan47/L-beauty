@@ -48,7 +48,7 @@ const Collections = () => {
               <h4>{product.brand}</h4>
               <p>{product.name}</p>
               <p className={styles.price}>
-                <span className={styles.salePrice}>{product.price}</span>
+                <span className={styles.salePrice}>${product.price}</span>
               </p>
             </div>
           ))}

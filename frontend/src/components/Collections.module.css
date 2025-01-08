@@ -8,9 +8,10 @@
   flex: 1;
 }
 
-.mainContent h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.mainContent p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .productGrid {
@@ -21,24 +22,15 @@
 
 .productCard {
   position: relative;
-  padding: 10px;
+  padding: 20px 5px;
   border: 1px solid #ddd;
   text-align: center;
+  font-size: 1rem;
 }
 
 .productCard img {
   width: 100%;
   height: auto;
-}
-
-.discount {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: red;
-  color: white;
-  padding: 3px 6px;
-  font-size: 12px;
 }
 
 .price {
