@@ -50,3 +50,11 @@
   margin-left: 5px;
   color: gray;
 }
+
+.paginationControls {
+  margin-top: 2rem;
+}
+
+.paginationControls button {
+  margin-right: 2rem;
+}
