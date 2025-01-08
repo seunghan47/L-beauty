@@ -1,4 +1,4 @@
-.title {
+/* .title {
   text-align: center;
   font-size: 20px;
 }
@@ -57,5 +57,122 @@
 @media (max-width: 1250px) {
   .form img {
     width: 80vw;
+  }
+} */
+
+/* Title Styling */
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 2rem;
+}
+
+.title h1 {
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #336a86;
+  text-transform: uppercase;
+}
+
+.title p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Form Styling */
+.form {
+  padding: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 2rem;
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  max-width: 750px;
+}
+
+.form img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Form Elements */
+.form_element label {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 500;
+}
+
+.form_element input {
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form_element input:focus {
+  border-color: #336a86;
+  box-shadow: 0 0 5px rgba(51, 106, 134, 0.5);
+  outline: none;
+}
+
+.form_element input[type="file"] {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Button Styling */
+.form_container button {
+  width: 100%;
+  height: 3.5rem;
+  color: white;
+  background-color: #336a86;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.form_container button:hover {
+  background-color: #28546c;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form {
+    padding: 2rem;
+    flex-direction: column;
+  }
+
+  .form img {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .form_container {
+    max-width: 100%;
   }
 }

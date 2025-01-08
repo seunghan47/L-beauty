@@ -52,19 +52,12 @@ const Add = () => {
 
   return (
     <>
-      <span className={styles.title}>
-        <h1>ITEM SUGGESTION</h1>
-        <p>Have an item you want to get in the store? fill out this form and we will get it as soon as we can!</p>
-      </span>
-
-      <form
-        className={styles.form}
-        onSubmit={postingForm}
-      >
-        <img
-          src='form.jpg'
-          alt=''
-        />
+      <form className={styles.form} onSubmit={postingForm}>
+        <div className={styles.title}>
+          <h1>ITEM SUGGESTION</h1>
+          <p>Have an item you want to get in the store? Fill this out!</p>
+        </div>
+        <img src='form.jpg' alt='' />
         <div className={styles.form_container}>
           <div className={styles.form_element}>
             <label htmlFor='name'>Name of the Product (Required)</label>
@@ -97,20 +90,11 @@ const Add = () => {
           </div>
           <div className={styles.form_element}>
             <label htmlFor='file'>Files image (Optional)</label>
-            <input
-              type='file'
-              onChange={(event) => inputChange("file", event.target.value)}
-              name='file'
-            />
+            <input type='file' onChange={(event) => inputChange("file", event.target.value)} name='file' />
           </div>
           <div className={styles.form_element}>
             <label htmlFor='date'>Date you need the item by (Optional)</label>
-            <input
-              type='date'
-              min={day}
-              onChange={(event) => inputChange("date", event.target.value)}
-              name='date'
-            />
+            <input type='date' min={day} onChange={(event) => inputChange("date", event.target.value)} name='date' />
           </div>
           <button>Submit!</button>
         </div>
