@@ -32,9 +32,11 @@ public class CollectionsController {
     public ResponseEntity<List<Inventory>> collectionItems(
             @PathVariable String category,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "24") int size
+            @RequestParam(defaultValue = "24") int size,
+            @RequestParam(required = false) Double priceBelow,
+            @RequestParam(required = false) String brand
     ) {
-        Page<Inventory> collection = inventoryService.findPaginatedByCategory(category, page, size);
+        Page<Inventory> collection = inventoryService.findPaginatedByCategory(category, page, size, priceBelow, brand);
         List<Inventory> items = collection.getContent();
 
         return ResponseEntity.ok(items);

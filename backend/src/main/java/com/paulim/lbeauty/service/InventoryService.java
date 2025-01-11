@@ -31,7 +31,7 @@ public class InventoryService {
         return inventoryRepository.findByCategory(category);
     }
 
-    public Page<Inventory> findPaginatedByCategory(String category, int page, int size) {
+    public Page<Inventory> findPaginatedByCategory(String category, int page, int size, Double priceBelow , String Brand) {
         return inventoryRepository.findByCategory(category, PageRequest.of(page, size));
     }
 }
