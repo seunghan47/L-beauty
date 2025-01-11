@@ -12,6 +12,15 @@ public class Inventory {
     String name;
     String price;
     String category;
+    String brand;
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
     public String getCategory() {
         return category;

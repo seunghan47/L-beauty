@@ -34,4 +34,20 @@ public class InventoryService {
     public Page<Inventory> findPaginatedByCategory(String category, int page, int size, Double priceBelow , String Brand) {
         return inventoryRepository.findByCategory(category, PageRequest.of(page, size));
     }
+
+    public Page<Inventory> findFilteredAndPaginatedByCategory(String category, int page, int size, Double priceBelow , String brand) {
+        PageRequest pageable = PageRequest.of(page, size);
+
+        if (priceBelow != null && brand != null) {
+            return inventoryRepository.findByCategoryAndPriceLessThanAndBrand(category, priceBelow, brand, pageable);
+        } else if (priceBelow != null) {
+            return inventoryRepository.findByCategoryAndPriceLessThan(category, priceBelow, pageable);
+        } else if (brand != null) {
+            return inventoryRepository.findByCategoryAndBrand(category, brand, pageable);
+        } else {
+            return inventoryRepository.findByCategory(category, pageable);
+        }
+
+    }
+
 }

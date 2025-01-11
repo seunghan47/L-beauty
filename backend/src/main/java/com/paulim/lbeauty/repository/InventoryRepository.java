@@ -17,4 +17,9 @@ public interface InventoryRepository extends JpaRepository <Inventory, Long> {
 
     Page<Inventory> findByCategory(String category, Pageable pageable);
 
+    Page<Inventory> findByCategoryAndPriceLessThan(String category, Double priceBelow, Pageable pageable);
+
+    Page<Inventory> findByCategoryAndBrand(String category, String brand, Pageable pageable);
+
+    Page<Inventory> findByCategoryAndPriceLessThanAndBrand(String category, Double priceBelow, String brand, Pageable pageable);
 }
