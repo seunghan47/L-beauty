@@ -31,6 +31,7 @@ const Sidebar = ({ category, brand }) => {
           <li>4 Stars</li>
           <li>3 Stars</li>
           <li>2 Stars</li>
+          <li>1 Stars</li>
         </ul>
       </div>
     </div>
