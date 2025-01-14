@@ -52,6 +52,8 @@ public class InventoryController {
         return ResponseEntity.ok(inventory);
     }
 
+
+
     @ExceptionHandler
     public ResponseEntity<String> handleException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(" unexpected error has occurred " + ex.getMessage());

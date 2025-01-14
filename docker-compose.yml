@@ -1,0 +1,38 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: spring-backend:latest
+    container_name: backend
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql-container
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql-container"]
+
+  mysql-container:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: "lbeauty"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+
+volumes:
+  mysql_data:
+
+networks:
+  default:
+    driver: bridge
+

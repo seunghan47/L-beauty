@@ -1,17 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Oops! We're doing some maintenance.</h1>
       <p style={styles.message}>We're currently making improvements to this page. Please check back in a few hours.</p>
-      <Link
+      {/* <Link
         to='..'
         style={styles.link}
       >
         Go Back to Safety
-      </Link>
+      </Link> */}
     </div>
   );
 };

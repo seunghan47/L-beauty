@@ -1,0 +1,52 @@
+.collectionsContainer {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.mainContent p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.productCard {
+  position: relative;
+  padding: 20px 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.productCard img {
+  width: 100%;
+  height: auto;
+}
+
+.price {
+  margin-top: 10px;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  margin-left: 5px;
+  color: gray;
+}
+
+.paginationControls {
+  margin-top: 2rem;
+}
+
+.paginationControls button {
+  margin-right: 2rem;
+}

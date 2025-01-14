@@ -34,11 +34,9 @@ header {
   padding-left: 1rem;
   background-color: white;
   width: 30vw;
-}
-
-/* .search_results.focused {
   border: black 1px solid;
-} */
+  border-top: none;
+}
 
 .nav_container {
   display: flex;
@@ -55,7 +53,7 @@ header {
   justify-content: space-evenly;
   background-color: black;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .merchandise_container p:hover {
@@ -67,7 +65,6 @@ header {
 
 a {
   text-decoration: none;
-  text-transform: uppercase;
   color: rgba(51, 106, 134, 255);
 }
 
@@ -118,6 +115,11 @@ a:focus {
     width: 75%;
   }
 
+  .search_results {
+    width: 75%;
+    font-size: 2vw;
+  }
+
   .nav_container {
     background-color: black;
     color: white;
@@ -136,6 +138,7 @@ a:focus {
 
   .hamburger {
     display: flex;
+    /* width: 1vw; */
   }
   .close {
     display: none;

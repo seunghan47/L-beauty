@@ -51,7 +51,7 @@ const AboutUs = () => {
           Receive daily updates on new arrivals, special promotions, and exclusive deals delivered straight to your
           inbox. Don't miss out on any of the exciting developments happening at L Beauty!
         </p>
-        <h4>4. Search for any items in the store</h4>
+        <h3>4. Search for any items in the store</h3>
         <p>
           Discover the ease of finding exactly what you need with our powerful search feature. Whether you're looking
           for your favorite products or exploring new arrivals, our intuitive search bar makes shopping at L Beauty

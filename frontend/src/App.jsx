@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { loader as itemLoader } from "./pages/ProductDetail";
 import ProductDetail from "./pages/ProductDetail";
 import ErrorPage from "./pages/ErrorPage";
@@ -11,6 +10,7 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import AboutUs from "./pages/AboutUs";
 import MaintenancePage from "./pages/MaintenancePage";
+import Collections from "./components/Collections";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       { path: "terms", element: <Terms /> },
       { path: "refund", element: <RefundPolicy /> },
       { path: "maintenance", element: <MaintenancePage /> },
+      { path: "collections/:category", element: <Collections /> },
     ],
   },
 ]);
