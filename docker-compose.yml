@@ -1,39 +1,38 @@
-version: '3.8'
-
-networks:
-  lbeauty:
-    driver: bridge
-
 services:
   backend:
-    image: backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: spring-backend:latest
     container_name: backend
     ports:
-      - "8080:8080"
-    networks:
-      - lbeauty
+      - "8082:8082"
     depends_on:
-      mysql-container:
-        condition: service_healthy
+      - mysql-container
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql-container"]
 
   mysql-container:
     image: mysql:latest
     container_name: mysql
     environment:
-      MYSQL_ALLOW_ROOT_PASSWORD: "true"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
       MYSQL_DATABASE: "lbeauty"
     ports:
       - "3306:3306"
-    networks:
-      - lbeauty
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - default
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
 volumes:
   mysql_data:
+
+networks:
+  default:
+    driver: bridge
 
