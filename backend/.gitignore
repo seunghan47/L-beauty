@@ -6,6 +6,7 @@ target/
 
 ### credentials ###
 # Ignore the application.properties file
+src/main/resources/application.properties
 
 
 ### STS ###
