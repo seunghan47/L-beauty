@@ -1,6 +1,6 @@
 # lbeauty - E-commerce Project
 
-Welcome to the **lbeauty** e-commerce project! This is a full-stack web application designed to allow customers to browse and order beauty products and services online. The project utilizes modern web technologies and cloud services to provide a seamless shopping experience.
+Welcome to the **lbeauty** e-commerce project! This is a full-stack web application designed to allow customers to browse and search a local retail beauty supply store online. The project utilizes modern web technologies and cloud services to provide a good user experience.
 
 ## Table of Contents
 - [Features](#features)
@@ -18,7 +18,6 @@ Welcome to the **lbeauty** e-commerce project! This is a full-stack web applicat
 - Customer recommendations for new products.
 - Responsive design for optimal viewing on various devices.
 - Integration with a MySQL database for data persistence.
-- Image fetching from Google to display product images.
 
 ## Technologies Used
 - **Frontend**: React
@@ -27,12 +26,9 @@ Welcome to the **lbeauty** e-commerce project! This is a full-stack web applicat
 - **Cloud Services**: AWS (S3 for static hosting, CloudFront for CDN)
 - **Containerization**: Docker
 
-## Project Structure
-/Users/polim/Desktop/personalProject/freelancing/e-commerce/lbeauty │ ├── frontend/ # React application │ ├── src/ # Source code │ └── public/ # Public assets │ └── backend/ # Spring Boot application ├── src/ # Source code └── resources/ # Configuration files
-
 
 ## Setup and Installation
-To get started with the project locally, first clone the repository from GitHub using the command `git clone https://github.com/yourusername/lbeauty.git`, and navigate to the cloned directory. Set up the backend by navigating to the `backend` directory, updating the database configuration in `application.properties` to connect to your MySQL database, and running the Spring Boot application with `./mvnw spring-boot:run`. Then, set up the frontend by navigating to the `frontend` directory, installing the necessary dependencies with `npm install`, and starting the React application with `npm start`. Once everything is running, open your browser and go to `http://localhost:3000` to view the application.
+To get started with the project locally, first clone the repository from GitHub using the command `git clone https://github.com/seunghan47/lbeauty.git`, and navigate to the cloned directory. Set up the backend by navigating to the `backend` directory, updating the database configuration in `application.properties` to connect to your MySQL database, and running the Spring Boot application with `./mvnw spring-boot:run`. Then, set up the frontend by navigating to the `frontend` directory, installing the necessary dependencies with `npm install`, and starting the React application with `npm start`. Once everything is running, open your browser and go to `http://localhost:3000` to view the application.
 
 ## Usage
 - Browse through the available beauty products and services.
@@ -48,7 +44,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For inquiries, please contact:
-- Your Name - [your.email@example.com](mailto:your.email@example.com)
-- GitHub: [yourusername](https://github.com/yourusername)
+- Your Name - [paulslim47@gmail.com]
+- GitHub: [seunghan47](https://github.com/seunghan47)
 
 Thank you for checking out **lbeauty**!
