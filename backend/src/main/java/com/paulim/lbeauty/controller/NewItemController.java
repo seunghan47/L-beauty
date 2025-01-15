@@ -19,6 +19,11 @@ public class NewItemController {
     @Autowired
     EmailServiceImpl emailService;
 
+    @GetMapping("/health")
+    public String health(){
+	    return "newItem controller working";
+    }
+
     @GetMapping("/getAll")
     public ResponseEntity<List<NewItem>> getAll() {
         List<NewItem> allItems = newItemService.getAll();

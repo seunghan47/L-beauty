@@ -27,6 +27,10 @@ public class CollectionsController {
 //
 //        return ResponseEntity.ok(collection);
 //    }
+    @GetMapping("/health")
+    public String health(){
+	    return "Collections Controller Working";
+    }
 
     @GetMapping("/{category}")
     public ResponseEntity<List<Inventory>> collectionItems(
