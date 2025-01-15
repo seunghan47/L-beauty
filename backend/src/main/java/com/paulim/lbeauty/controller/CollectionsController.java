@@ -21,13 +21,6 @@ public class CollectionsController {
         this.inventoryService = inventoryService;
     }
 
-//    @GetMapping("/{category}")
-//    public ResponseEntity<List<Inventory>> collectionItems(@PathVariable String category) {
-//        List<Inventory> collection = inventoryService.findByCategory(category);
-//
-//        return ResponseEntity.ok(collection);
-//    }
-
     @GetMapping("/{category}")
     public ResponseEntity<List<Inventory>> collectionItems(
             @PathVariable String category,
