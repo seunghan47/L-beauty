@@ -21,6 +21,11 @@ public class CollectionsController {
         this.inventoryService = inventoryService;
     }
 
+    @GetMapping("/health")
+    public String health(){
+	    return "Collections Controller Working";
+    }
+
     @GetMapping("/{category}")
     public ResponseEntity<List<Inventory>> collectionItems(
             @PathVariable String category,
