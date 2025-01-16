@@ -37,10 +37,8 @@ class CareerControllerTest {
 
         when(careerService.save(career)).thenReturn(savedCareer);
 
-        // Act
         ResponseEntity<Career> response = careerController.addJob(career);
 
-        // Assert
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(savedCareer, response.getBody());
         verify(careerService, times(1)).save(career);

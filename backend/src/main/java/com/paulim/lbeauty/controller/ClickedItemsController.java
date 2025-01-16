@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RequestMapping("/clicked")
 public class ClickedItemsController {
-    @Autowired
-    ClickedItemsService clickedItemsService;
+    private final ClickedItemsService clickedItemsService;
+
+    ClickedItemsController(ClickedItemsService clickedItemsService) {
+        this.clickedItemsService = clickedItemsService;
+    }
 
     @PostMapping("/clicked")
     public ResponseEntity<ClickedItems> saveItem(@RequestBody ClickedItems clickedItems){
