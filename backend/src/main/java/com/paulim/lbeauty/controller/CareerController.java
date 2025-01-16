@@ -25,6 +25,7 @@ public class CareerController {
         System.out.println("phone : " + career.getPhone());
 
         Career saved = careerService.save(career);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
