@@ -13,6 +13,24 @@ public class Inventory {
     String price;
     String category;
     String brand;
+    double rating;
+
+    public Inventory(String UPC, String name, String price, String category, String brand, double rating) {
+        this.UPC = UPC;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.brand = brand;
+        this.rating = rating;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 
     public String getBrand() {
         return brand;
@@ -72,11 +90,5 @@ public class Inventory {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
-    }
-
-    public Inventory(String name, String price, String UPC) {
-        this.name = name;
-        this.price = price;
-        this.UPC = UPC;
     }
 }
