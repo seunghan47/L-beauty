@@ -1,3 +1,4 @@
-# config files
+### config files ###
 ./s3/config.py
+s3/config.py
 
