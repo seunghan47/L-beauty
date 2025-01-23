@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // const url = "http://localhost:8082/newItem/save";
 // const url = "http://3.82.48.51:8080/newItem/save";
-const url = "https://api.lbeautysupplies.com/newItem/save";
+const url = "https://api2.lbeautysupplies.com/newItem/save";
 
 const Add = () => {
   const navigate = useNavigate();

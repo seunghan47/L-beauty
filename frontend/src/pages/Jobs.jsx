@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // const url = "http://localhost:8082/career/addCareer";
 // const url = "http://3.82.48.51:8080/career/addCareer";
-const url = "https://api.lbeautysupplies.com/career/addCareer";
+const url = "https://api2.lbeautysupplies.com/career/addCareer";
 
 const Jobs = () => {
   const navigate = useNavigate();
@@ -56,31 +56,19 @@ const Jobs = () => {
           <div className={styles.label_input}>
             <label htmlFor='name'>
               <p>Name: </p>
-              <input
-                type='text'
-                name='name'
-                onChange={(event) => inputChange("name", event.target.value)}
-              ></input>
+              <input type='text' name='name' onChange={(event) => inputChange("name", event.target.value)}></input>
             </label>
           </div>
           <div className={styles.label_input}>
             <label htmlFor='email'>
               <p>Email: </p>
-              <input
-                type='text'
-                name='email'
-                onChange={(event) => inputChange("email", event.target.value)}
-              ></input>
+              <input type='text' name='email' onChange={(event) => inputChange("email", event.target.value)}></input>
             </label>
           </div>
           <div className={styles.label_input}>
             <label htmlFor='Phone'>
               <p>Phone: </p>
-              <input
-                type='text'
-                name='phone'
-                onChange={(event) => inputChange("phone", event.target.value)}
-              ></input>
+              <input type='text' name='phone' onChange={(event) => inputChange("phone", event.target.value)}></input>
             </label>
           </div>
 
@@ -88,11 +76,7 @@ const Jobs = () => {
             <label htmlFor='message'>
               <p style={{ marginBottom: "16px" }}>Message: </p>
               <br />
-              <textarea
-                type='text'
-                name='message'
-                onChange={(event) => inputChange("message", event.target.value)}
-              />
+              <textarea type='text' name='message' onChange={(event) => inputChange("message", event.target.value)} />
             </label>
           </div>
           <button className={styles.button}>Submit</button>

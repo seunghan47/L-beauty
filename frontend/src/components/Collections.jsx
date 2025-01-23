@@ -47,7 +47,7 @@ const Collections = () => {
         <div className={styles.productGrid}>
           {products.map((product) => (
             <div key={product.id} className={styles.productCard}>
-              <h4>{product.brand}</h4>
+              {/* <h4>{product.brand}</h4> */}
               <p>{product.name}</p>
               <p className={styles.price}>
                 <span className={styles.salePrice}>${product.price}</span>
