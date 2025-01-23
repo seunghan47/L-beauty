@@ -24,6 +24,12 @@ public class Inventory {
         this.rating = rating;
     }
 
+    public Inventory(String UPC, String name, String price) {
+        this.UPC = UPC;
+        this.name = name;
+        this.price = price;
+    }
+
     public double getRating() {
         return rating;
     }

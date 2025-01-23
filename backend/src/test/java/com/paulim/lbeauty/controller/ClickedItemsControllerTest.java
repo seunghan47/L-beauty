@@ -28,8 +28,6 @@ public class ClickedItemsControllerTest {
         ClickedItems item = new ClickedItems("item1",  "12345", date);
         ClickedItems savedItem = new ClickedItems("item1", "12345", date);
 
-
-
         when(clickedItemsService.save(item)).thenReturn(savedItem);
         ResponseEntity<ClickedItems> response = clickedItemsController.saveItem(item);
         assertEquals(201, response.getStatusCodeValue());
