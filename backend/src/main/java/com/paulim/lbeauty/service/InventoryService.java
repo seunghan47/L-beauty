@@ -13,8 +13,13 @@ import java.util.List;
 @Service
 public class InventoryService {
 
+    private final InventoryRepository inventoryRepository;
+
     @Autowired
-    private InventoryRepository inventoryRepository;
+    public InventoryService(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
+
 
     public Inventory getItem(String name) {
         return inventoryRepository.findByName(name);

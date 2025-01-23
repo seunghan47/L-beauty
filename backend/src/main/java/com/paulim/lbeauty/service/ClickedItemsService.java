@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClickedItemsService {
 
+    private final ClickedItemsRepository clickedItemsRepository;
+
     @Autowired
-    ClickedItemsRepository clickedItemsRepository;
+    public ClickedItemsService(ClickedItemsRepository clickedItemsRepository) {
+        this.clickedItemsRepository = clickedItemsRepository;
+    }
 
     public ClickedItems save(ClickedItems clickedItems) {
 

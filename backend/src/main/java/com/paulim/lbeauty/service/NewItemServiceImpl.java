@@ -12,8 +12,12 @@ import java.util.List;
 @Service
 public class NewItemServiceImpl implements NewItemService{
 
+    private final NewItemRepository newItemRepository;
+
     @Autowired
-    NewItemRepository newItemRepository;
+    public NewItemServiceImpl(NewItemRepository newItemRepository){
+        this.newItemRepository = newItemRepository;
+    }
 
     @Override
     public NewItem saveNewItem(NewItem item) {

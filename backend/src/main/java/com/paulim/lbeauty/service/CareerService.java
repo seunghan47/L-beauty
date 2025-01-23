@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CareerService {
 
+    private final CareerRepository careerRepository;
+
     @Autowired
-    CareerRepository careerRepository;
+    public CareerService(CareerRepository careerRepository) {
+        this.careerRepository = careerRepository;
+    }
 
     public Career save(Career career) {
         return careerRepository.save(career);
