@@ -13,7 +13,7 @@ def fetch_missing_images():
     except mysql.connector.Error as err:
         print(f"Error: {err}")
 
-    query = "SELECT id, name FROM inventory WHERE image IS NULL"
+    query = "SELECT id, name, UPC FROM inventory WHERE image_url IS NULL LIMIT 100"
     cursor = conn.cursor()
     cursor.execute(query)
     results = cursor.fetchall()
@@ -38,4 +38,6 @@ def update_image(product_id, image_url):
     conn.close()
 
 if __name__ == "__main__":
-    fetch_missing_images
+    result = fetch_missing_images()
+    for row in result:
+        print(row)

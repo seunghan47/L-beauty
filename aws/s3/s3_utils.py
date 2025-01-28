@@ -1,7 +1,9 @@
 import mysql.connector
 from config_local import DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
+import boto3
 
 def get_missing_image():
+
     try:
         conn = mysql.connector.connect(
             host=DB_HOST,
@@ -14,7 +16,7 @@ def get_missing_image():
 
     
     cursor = conn.cursor()
-    query = "SELECT * FROM inventory LIMIT 100;"
+    query = "SELECT * FROM inventory LIMIT 10;"
     cursor.execute(query)
     results = cursor.fetchall()
     cursor.close()
