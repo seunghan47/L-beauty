@@ -34,7 +34,8 @@ class InventoryServiceTest {
         mockInventoryList = List.of(
                 new Inventory("111111", "item1", "1.99"),
                 new Inventory("222222", "item2", "2.99"),
-                new Inventory("333333", "item3", "3.99")
+                new Inventory("333333", "item3", "3.99"),
+                new Inventory("444444", "tier3", "4.99")
         );
     }
 
@@ -52,12 +53,27 @@ class InventoryServiceTest {
 
     @Test
     void findFilteredAndPaginatedByCategory() {
-
-
         Page<Inventory> page = inventoryService.findFilteredAndPaginatedByCategory("category", 1, 1, 2.0, "apple");
-
-
     }
+
+    @Test
+    void findByNameIgnoreCase_shouldReturnMatchingInventory() {
+        String query = "item";
+        when(inventoryRepository.findByNameContainingIgnoreCase(query)).thenReturn(
+                mockInventoryList.stream()
+                        .filter(item -> item.getName().toLowerCase().contains(query))
+                        .toList()
+        );
+
+        List<Inventory> result = inventoryService.findByNameContainingIgnoreCase(query);
+
+        assertNotNull(result, "Returned list should not be null");
+        assertFalse(result.isEmpty(), "Expected at least one result");
+        assertEquals(3, result.size(), "Expected only 2 matching items");
+
+        verify(inventoryRepository, times(1)).findByNameContainingIgnoreCase(query);
+    }
+
 
 
 }
