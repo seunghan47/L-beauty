@@ -2,42 +2,54 @@ package com.paulim.lbeauty.controller;
 
 import com.paulim.lbeauty.model.Inventory;
 import com.paulim.lbeauty.service.InventoryService;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
 import java.util.List;
 
-@WebMvcTest(InventoryController.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 class InventoryControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private InventoryService InventoryService;
-
-    @InjectMocks
-    private InventoryController InventoryController;
-    @Autowired
+    @Mock
     private InventoryService inventoryService;
 
-    @Test
-    void testGetAll_Success() throws Exception{
-        List<Inventory> mockInventory = List.of(new Inventory("123", "Item1", "987"), new Inventory("456", "Item2", "654"));
-        Mockito.when(inventoryService.getAllItems()).thenReturn(mockInventory);
+    @InjectMocks
+    private InventoryController inventoryController;
 
+    private static List<Inventory> mockList;
+
+    @BeforeEach
+    void setUp() {
+        mockList = List.of(
+                new Inventory("111111", "item1", "1.99"),
+                new Inventory("222222", "item2", "2.99"),
+                new Inventory("333333", "item3", "3.99")
+        );
     }
 
     @Test
-    void testing() {
-    }
+    void gettingAllItems() {
+        when(inventoryService.getAllItems()).thenReturn(mockList);
+        List<Inventory> result = inventoryController.getAll();
 
-    @Test
-    void searchItems() {
+        assertEquals(mockList.size(), result.size(), "Expected inventory list size to match");
+        assertEquals(mockList, result, "Expected returned list to match mock data");
+
+        verify(inventoryService).getAllItems();
+
     }
 }
