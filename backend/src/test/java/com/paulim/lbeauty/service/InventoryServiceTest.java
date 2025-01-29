@@ -10,6 +10,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,12 +53,6 @@ class InventoryServiceTest {
 
         verify(inventoryRepository, times(1)).findAll();
     }
-
-    @Test
-    void findFilteredAndPaginatedByCategory() {
-        Page<Inventory> page = inventoryService.findFilteredAndPaginatedByCategory("category", 1, 1, 2.0, "apple");
-    }
-
     @Test
     void findByNameIgnoreCase_shouldReturnMatchingInventory() {
         String query = "item";
@@ -73,6 +70,109 @@ class InventoryServiceTest {
 
         verify(inventoryRepository, times(1)).findByNameContainingIgnoreCase(query);
     }
+
+    @Test
+    void findFilteredAndPaginatedByCategory_ShouldReturnFilteredResults() {
+        String category = "electronics";
+        String brand = "apple";
+        Double priceBelow = 1000.0;
+        int page = 0;
+        int size = 2;
+
+        Pageable pageable = PageRequest.of(page, size);
+        List<Inventory> filteredItems = List.of(
+                new Inventory("555555", "Super nice hair", "999.99", category, brand, 5.0),
+                new Inventory("666666", "Super cool wig", "899.99", category, brand, 5.0)
+        );
+        Page<Inventory> mockPage = new PageImpl<>(filteredItems, pageable, filteredItems.size());
+
+        when(inventoryRepository.findByCategoryAndPriceLessThanAndBrand(category, priceBelow, brand, pageable))
+                .thenReturn(mockPage);
+
+        Page<Inventory> result = inventoryService.findFilteredAndPaginatedByCategory(category, page, size, priceBelow, brand);
+
+        assertNotNull(result, "Returned page should not be null");
+        assertEquals(2, result.getTotalElements(), "Expected 2 matching items");
+        assertEquals(filteredItems, result.getContent(), "Expected filtered inventory list");
+
+        verify(inventoryRepository, times(1))
+                .findByCategoryAndPriceLessThanAndBrand(category, priceBelow, brand, pageable);
+    }
+
+    @Test
+    void findFilteredAndPaginatedByCategory_OnlyPrice_ShouldReturnFilteredResults() {
+        String category = "electronics";
+        Double priceBelow = 1000.0;
+        int page = 0;
+        int size = 2;
+
+        Pageable pageable = PageRequest.of(page, size);
+        List<Inventory> filteredItems = List.of(
+                new Inventory("777777", "Budget Hair", "899.99", category, "Generic", 4.5)
+        );
+        Page<Inventory> mockPage = new PageImpl<>(filteredItems, pageable, filteredItems.size());
+
+        when(inventoryRepository.findByCategoryAndPriceLessThan(category, priceBelow, pageable))
+                .thenReturn(mockPage);
+
+        Page<Inventory> result = inventoryService.findFilteredAndPaginatedByCategory(category, page, size, priceBelow, null);
+
+        assertNotNull(result, "Returned page should not be null");
+        assertEquals(1, result.getTotalElements(), "Expected only 1 matching item");
+        assertEquals(filteredItems, result.getContent(), "Expected filtered inventory list");
+
+        verify(inventoryRepository, times(1))
+                .findByCategoryAndPriceLessThan(category, priceBelow, pageable);
+    }
+
+    @Test
+    void findFilteredAndPaginatedByCategory_OnlyBrand_ShouldReturnFilteredResults() {
+        String category = "electronics";
+        String brand = "loreal";
+        int page = 0;
+        int size = 2;
+
+        Pageable pageable = PageRequest.of(page, size);
+        List<Inventory> filteredItems = List.of(
+                new Inventory("888888", "Luxury Conditioner", "19.99", category, brand, 4.8)
+        );
+        Page<Inventory> mockPage = new PageImpl<>(filteredItems, pageable, filteredItems.size());
+
+        when(inventoryRepository.findByCategoryAndBrand(category, brand, pageable))
+                .thenReturn(mockPage);
+
+        Page<Inventory> result = inventoryService.findFilteredAndPaginatedByCategory(category, page, size, null, brand);
+
+        assertNotNull(result, "Returned page should not be null");
+        assertEquals(1, result.getTotalElements(), "Expected only 1 matching item");
+        assertEquals(filteredItems, result.getContent(), "Expected filtered inventory list");
+
+        verify(inventoryRepository, times(1))
+                .findByCategoryAndBrand(category, brand, pageable);
+    }
+
+    @Test
+    void findFilteredAndPaginatedByCategory_NoFilters_ShouldReturnAllInCategory() {
+        String category = "electronics";
+        int page = 0;
+        int size = 2;
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Inventory> mockPage = new PageImpl<>(mockInventoryList, pageable, mockInventoryList.size());
+
+        when(inventoryRepository.findByCategory(category, pageable))
+                .thenReturn(mockPage);
+
+        Page<Inventory> result = inventoryService.findFilteredAndPaginatedByCategory(category, page, size, null, null);
+
+        assertNotNull(result, "Returned page should not be null");
+        assertEquals(mockInventoryList.size(), result.getTotalElements(), "Expected all items in category");
+        assertEquals(mockInventoryList, result.getContent(), "Expected entire category inventory");
+
+        verify(inventoryRepository, times(1))
+                .findByCategory(category, pageable);
+    }
+
 
 
 
