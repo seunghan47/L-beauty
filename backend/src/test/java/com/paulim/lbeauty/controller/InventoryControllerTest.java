@@ -30,7 +30,7 @@ class InventoryControllerTest {
     @InjectMocks
     private InventoryController inventoryController;
 
-    private static List<Inventory> mockList;
+    private List<Inventory> mockList;
 
     @BeforeEach
     void setUp() {
