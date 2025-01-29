@@ -13,11 +13,8 @@ def process_product(product_name):
 
 def process_missing_image():
     products = fetch_missing_images()
-    i = 0
     for product in products:
         process_product(product[2])
-        print(("success"), product[2], i)
-        i += 1
 
 if __name__ == "__main__":
     process_missing_image()

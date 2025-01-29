@@ -38,11 +38,33 @@ def update_image(product_name, image_url):
     query = "UPDATE inventory SET image_url = %s WHERE name = %s"
     cursor = conn.cursor()
     cursor.execute(query, (image_url, product_name))
+    print(f"{product_name} updated with {image_url}")
     conn.commit()
     conn.close()
 
+def updated_images():
+    try:
+        conn = mysql.connector.connect(
+            host=DB_HOST,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            database=DB_NAME
+        )
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+    
+    query = "SELECT * FROM inventory WHERE image_url IS NOT null"
+    cursor = conn.cursor()
+    cursor.execute(query)
+    results = cursor.fetchall()
+    conn.close()
+    return results
+
+
+
 if __name__ == "__main__":
     result = fetch_missing_images()
-    # for row in result:
-        # print(row[])
-        # print(row[2])
+    result = updated_images()
+    print("running db_utils")
+    for row in result:
+        print(row[2])
