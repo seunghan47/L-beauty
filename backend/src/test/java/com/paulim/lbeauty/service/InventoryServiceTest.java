@@ -173,6 +173,34 @@ class InventoryServiceTest {
                 .findByCategory(category, pageable);
     }
 
+    @Test
+    void findPaginatedByCategory_ShouldReturnPagedResults() {
+        // Given
+        String category = "electronics";
+        int page = 0;
+        int size = 2;
+        Pageable pageable = PageRequest.of(page, size);
+
+        List<Inventory> inventoryList = List.of(
+                new Inventory("999999", "Smartphone", "599.99", category, "Samsung", 4.6),
+                new Inventory("101010", "Laptop", "999.99", category, "Dell", 4.7)
+        );
+        Page<Inventory> mockPage = new PageImpl<>(inventoryList, pageable, inventoryList.size());
+
+        // When
+        when(inventoryRepository.findByCategory(category, pageable)).thenReturn(mockPage);
+
+        Page<Inventory> result = inventoryService.findPaginatedByCategory(category, page, size, null, null);
+
+        // Then
+        assertNotNull(result, "Returned page should not be null");
+        assertEquals(2, result.getTotalElements(), "Expected 2 items in paginated results");
+        assertEquals(inventoryList, result.getContent(), "Expected list of inventory items");
+
+        verify(inventoryRepository, times(1)).findByCategory(category, pageable);
+    }
+
+
 
 
 

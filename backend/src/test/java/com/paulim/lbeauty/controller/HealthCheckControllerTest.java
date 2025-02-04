@@ -18,7 +18,7 @@ class HealthCheckControllerTest {
 
     @Test
     void isHealthCheckRunning() throws Exception {
-        mockMvc.perform(get("/health")) // Replace with the actual endpoint mapping
+        mockMvc.perform(get("/health"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("api is up and running"));
     }
