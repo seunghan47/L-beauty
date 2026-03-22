@@ -1,50 +1,142 @@
-# lbeauty - E-commerce Project
+# 💄 LBeauty — Full-Stack E-Commerce Platform
 
-Welcome to the **lbeauty** e-commerce project! This is a full-stack web application designed to allow customers to browse and search a local retail beauty supply store online. The project utilizes modern web technologies and cloud services to provide a good user experience.
+A production-grade full-stack web application built for a local retail beauty supply store, enabling online product browsing, inventory management, and order workflows. Deployed on AWS with a secure, scalable cloud architecture.
 
-## Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+---
 
-## Features
-- Browse a wide range of beauty products and services.
-- Search for specific products and view detailed descriptions.
-- Customer recommendations for new products.
-- Responsive design for optimal viewing on various devices.
-- Integration with a MySQL database for data persistence.
+## 🏗️ Architecture
 
-## Technologies Used
-- **Frontend**: React
-- **Backend**: Java, Spring Boot
-- **Database**: MySQL
-- **Cloud Services**: AWS (S3 for static hosting, CloudFront for CDN)
-- **Containerization**: Docker
+```
+                        ┌─────────────┐
+                        │   Route 53  │  DNS Routing
+                        └──────┬──────┘
+                               │
+                        ┌──────▼──────┐
+                        │  CloudFront │  CDN
+                        └──────┬──────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+       ┌──────▼──────┐  ┌──────▼──────┐  ┌──────▼──────┐
+       │     S3      │  │    EC2      │  │    RDS      │
+       │  (React UI) │  │ (Spring     │  │  (MySQL)    │
+       │             │  │  Boot API)  │  │             │
+       └─────────────┘  └─────────────┘  └─────────────┘
+                               │
+                        ┌──────▼──────┐
+                        │    IAM      │  Cross-service Auth
+                        └─────────────┘
+```
 
+---
 
-## Setup and Installation
-To get started with the project locally, first clone the repository from GitHub using the command `git clone https://github.com/seunghan47/lbeauty.git`, and navigate to the cloned directory. Set up the backend by navigating to the `backend` directory, updating the database configuration in `application.properties` to connect to your MySQL database, and running the Spring Boot application with `./mvnw spring-boot:run`. Then, set up the frontend by navigating to the `frontend` directory, installing the necessary dependencies with `npm install`, and starting the React application with `npm start`. Once everything is running, open your browser and go to `http://localhost:3000` to view the application.
+## ✨ Features
 
-## Usage
-- Browse through the available beauty products and services.
-- Use the search feature to find specific products.
-- View detailed information and make recommendations.
-- Products are dynamically fetched and displayed, including images sourced from Google.
+- Browse and search beauty products with dynamic filtering
+- Product detail pages with descriptions and images
+- Customer product recommendations
+- Inventory tracking and order workflow automation
+- Responsive design for mobile and desktop
+- Secure cross-service authentication via IAM roles
 
-## Contributing
-Contributions are welcome! If you have suggestions for improvements or want to report a bug, please open an issue or submit a pull request.
+---
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+## 🛠️ Tech Stack
 
-## Contact
-For inquiries, please contact:
-- Your Name - [paulslim47@gmail.com]
-- GitHub: [seunghan47](https://github.com/seunghan47)
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React, HTML/CSS |
+| Backend | Java, Spring Boot, REST APIs |
+| Database | MySQL (AWS RDS) |
+| Cloud | AWS EC2, S3, RDS, CloudFront, Route 53, IAM |
+| Containerization | Docker |
 
-Thank you for checking out **lbeauty**!
+---
+
+## 🚀 Running Locally
+
+### Prerequisites
+- Java 17+
+- Node.js 18+
+- MySQL or Docker
+
+### Option 1 — Docker Compose (Recommended)
+```bash
+git clone https://github.com/seunghan47/lbeauty.git
+cd lbeauty
+docker-compose up
+```
+App runs at `http://localhost:3000`
+
+### Option 2 — Manual Setup
+
+**Backend:**
+```bash
+cd backend
+# Update src/main/resources/application.properties with your DB credentials
+./mvnw spring-boot:run
+```
+
+**Frontend:**
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## ☁️ AWS Deployment Architecture
+
+| Service | Purpose |
+|---------|---------|
+| EC2 | Hosts the Spring Boot backend API |
+| S3 | Hosts the static React frontend |
+| RDS | Managed MySQL database |
+| CloudFront | CDN for low-latency static asset delivery |
+| Route 53 | DNS routing to CloudFront and EC2 |
+| IAM | Role-based cross-service authentication |
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/products` | Fetch all products |
+| GET | `/api/products/{id}` | Fetch product by ID |
+| GET | `/api/products/search?q=` | Search products |
+| POST | `/api/orders` | Create new order |
+| GET | `/api/inventory` | Get inventory status |
+
+---
+
+## 📁 Project Structure
+
+```
+lbeauty/
+├── backend/
+│   ├── src/main/java/
+│   │   ├── controller/     # REST API controllers
+│   │   ├── service/        # Business logic
+│   │   ├── model/          # Entity classes
+│   │   └── repository/     # JPA repositories
+│   └── src/main/resources/
+│       └── application.properties
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── pages/          # Page views
+│   │   └── services/       # API calls
+│   └── public/
+└── docker-compose.yml
+```
+
+---
+
+## 📬 Contact
+
+**Paul Lim**
+- Email: paulslim47@gmail.com
+- GitHub: [@seunghan47](https://github.com/seunghan47)
+- LinkedIn: [Paul Lim](https://linkedin.com/in/yourprofile)
