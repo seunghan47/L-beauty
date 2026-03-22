@@ -1,10 +1,9 @@
-FROM openjdk:17-jdk
+FROM amazoncorretto:17
 
 WORKDIR /app
 
-COPY target/lbeauty-0.0.1-SNAPSHOT.jar lbeauty.jar
+COPY target/*.jar app.jar
 
-EXPOSE 443
+EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "lbeauty.jar"]
-
+ENTRYPOINT ["java", "-jar", "app.jar"]

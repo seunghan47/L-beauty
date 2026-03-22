@@ -5,6 +5,8 @@ import com.paulim.lbeauty.repository.CareerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CareerService {
 
@@ -17,5 +19,8 @@ public class CareerService {
 
     public Career save(Career career) {
         return careerRepository.save(career);
+    }
+    public List<Career> getAll() {
+        return careerRepository.findAll();
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/career")
 @CrossOrigin("*")
@@ -29,4 +31,8 @@ public class CareerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Career>> getAll() {
+        return ResponseEntity.ok(careerService.getAll());
+    }
 }
