@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clicked")
+@RequestMapping("/api/clicked")
 public class ClickedItemsController {
     private final ClickedItemsService clickedItemsService;
 

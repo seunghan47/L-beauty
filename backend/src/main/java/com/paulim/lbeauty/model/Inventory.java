@@ -13,7 +13,7 @@ public class Inventory {
     String price;
     String category;
     String brand;
-    double rating;
+    Double rating;
 
     public Inventory(String UPC, String name, String price, String category, String brand, double rating) {
         this.UPC = UPC;
