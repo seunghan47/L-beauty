@@ -1,4 +1,4 @@
-package com.paulim.lbeauty.controller;
+package com.paulim.lbeauty.shared;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

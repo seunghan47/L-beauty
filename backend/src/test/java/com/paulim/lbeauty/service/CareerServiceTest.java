@@ -1,15 +1,12 @@
 package com.paulim.lbeauty.service;
 
-import com.paulim.lbeauty.model.Career;
-import com.paulim.lbeauty.model.Inventory;
-import com.paulim.lbeauty.repository.CareerRepository;
-import jakarta.inject.Inject;
+import com.paulim.lbeauty.career.Career;
+import com.paulim.lbeauty.career.CareerRepository;
+import com.paulim.lbeauty.career.CareerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,8 +1,5 @@
-package com.paulim.lbeauty.controller;
+package com.paulim.lbeauty.analytics;
 
-import com.paulim.lbeauty.model.ClickedItems;
-import com.paulim.lbeauty.service.ClickedItemsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

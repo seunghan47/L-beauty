@@ -1,16 +1,12 @@
-package com.paulim.lbeauty.service;
+package com.paulim.lbeauty.newitem;
 
-import com.paulim.lbeauty.model.NewItem;
-import com.paulim.lbeauty.repository.NewItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class NewItemServiceImpl implements NewItemService{
+public class NewItemServiceImpl implements NewItemService {
 
     private final NewItemRepository newItemRepository;
 

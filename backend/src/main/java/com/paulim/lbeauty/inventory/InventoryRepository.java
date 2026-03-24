@@ -1,6 +1,5 @@
-package com.paulim.lbeauty.repository;
+package com.paulim.lbeauty.inventory;
 
-import com.paulim.lbeauty.model.Inventory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

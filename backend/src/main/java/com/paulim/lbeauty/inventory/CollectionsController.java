@@ -1,7 +1,5 @@
-package com.paulim.lbeauty.controller;
+package com.paulim.lbeauty.inventory;
 
-import com.paulim.lbeauty.model.Inventory;
-import com.paulim.lbeauty.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

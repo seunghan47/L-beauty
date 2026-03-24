@@ -1,4 +1,4 @@
-package com.paulim.lbeauty.model;
+package com.paulim.lbeauty.analytics;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

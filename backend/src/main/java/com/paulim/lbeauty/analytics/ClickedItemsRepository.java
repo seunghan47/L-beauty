@@ -1,6 +1,5 @@
-package com.paulim.lbeauty.repository;
+package com.paulim.lbeauty.analytics;
 
-import com.paulim.lbeauty.model.ClickedItems;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

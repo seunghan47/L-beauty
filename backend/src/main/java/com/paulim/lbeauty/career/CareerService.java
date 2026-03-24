@@ -1,7 +1,5 @@
-package com.paulim.lbeauty.service;
+package com.paulim.lbeauty.career;
 
-import com.paulim.lbeauty.model.Career;
-import com.paulim.lbeauty.repository.CareerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

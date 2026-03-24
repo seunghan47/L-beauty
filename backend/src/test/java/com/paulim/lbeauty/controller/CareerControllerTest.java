@@ -1,7 +1,8 @@
 package com.paulim.lbeauty.controller;
 
-import com.paulim.lbeauty.model.Career;
-import com.paulim.lbeauty.service.CareerService;
+import com.paulim.lbeauty.career.CareerController;
+import com.paulim.lbeauty.career.Career;
+import com.paulim.lbeauty.career.CareerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

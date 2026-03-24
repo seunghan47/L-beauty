@@ -1,13 +1,12 @@
 package com.paulim.lbeauty.controller;
 
-import com.paulim.lbeauty.service.InventoryService;
+import com.paulim.lbeauty.inventory.CollectionsController;
+import com.paulim.lbeauty.inventory.InventoryService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CollectionsControllerTest {

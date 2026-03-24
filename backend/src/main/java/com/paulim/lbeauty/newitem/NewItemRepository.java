@@ -1,6 +1,5 @@
-package com.paulim.lbeauty.repository;
+package com.paulim.lbeauty.newitem;
 
-import com.paulim.lbeauty.model.NewItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

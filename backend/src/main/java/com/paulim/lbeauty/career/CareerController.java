@@ -1,7 +1,5 @@
-package com.paulim.lbeauty.controller;
+package com.paulim.lbeauty.career;
 
-import com.paulim.lbeauty.model.Career;
-import com.paulim.lbeauty.service.CareerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

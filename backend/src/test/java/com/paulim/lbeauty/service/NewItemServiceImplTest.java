@@ -1,8 +1,8 @@
 package com.paulim.lbeauty.service;
 
-import com.paulim.lbeauty.model.NewItem;
-import com.paulim.lbeauty.repository.NewItemRepository;
-import org.eclipse.angus.mail.imap.protocol.Item;
+import com.paulim.lbeauty.newitem.NewItem;
+import com.paulim.lbeauty.newitem.NewItemRepository;
+import com.paulim.lbeauty.newitem.NewItemServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,8 +1,8 @@
 package com.paulim.lbeauty.service;
 
-import com.paulim.lbeauty.model.Inventory;
-import com.paulim.lbeauty.repository.InventoryRepository;
-import org.junit.Before;
+import com.paulim.lbeauty.inventory.Inventory;
+import com.paulim.lbeauty.inventory.InventoryRepository;
+import com.paulim.lbeauty.inventory.InventoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,8 +14,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

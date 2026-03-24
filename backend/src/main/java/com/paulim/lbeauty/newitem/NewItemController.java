@@ -1,8 +1,6 @@
-package com.paulim.lbeauty.controller;
+package com.paulim.lbeauty.newitem;
 
-import com.paulim.lbeauty.model.NewItem;
-import com.paulim.lbeauty.service.EmailServiceImpl;
-import com.paulim.lbeauty.service.NewItemService;
+import com.paulim.lbeauty.shared.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

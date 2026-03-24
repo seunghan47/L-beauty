@@ -1,7 +1,5 @@
-package com.paulim.lbeauty.service;
+package com.paulim.lbeauty.analytics;
 
-import com.paulim.lbeauty.model.ClickedItems;
-import com.paulim.lbeauty.repository.ClickedItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,21 +1,15 @@
 package com.paulim.lbeauty.controller;
 
-import com.paulim.lbeauty.model.Inventory;
-import com.paulim.lbeauty.service.InventoryService;
-import org.junit.jupiter.api.BeforeAll;
+import com.paulim.lbeauty.inventory.InventoryController;
+import com.paulim.lbeauty.inventory.Inventory;
+import com.paulim.lbeauty.inventory.InventoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

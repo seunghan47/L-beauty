@@ -1,4 +1,4 @@
-package com.paulim.lbeauty.model;
+package com.paulim.lbeauty.newitem;
 
 import jakarta.persistence.*;
 

@@ -1,7 +1,8 @@
 package com.paulim.lbeauty.controller;
 
-import com.paulim.lbeauty.model.ClickedItems;
-import com.paulim.lbeauty.service.ClickedItemsService;
+import com.paulim.lbeauty.analytics.ClickedItemsController;
+import com.paulim.lbeauty.analytics.ClickedItems;
+import com.paulim.lbeauty.analytics.ClickedItemsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

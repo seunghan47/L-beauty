@@ -1,4 +1,4 @@
-package com.paulim.lbeauty.service;
+package com.paulim.lbeauty.shared;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

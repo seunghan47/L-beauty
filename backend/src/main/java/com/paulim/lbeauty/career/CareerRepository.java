@@ -1,6 +1,5 @@
-package com.paulim.lbeauty.repository;
+package com.paulim.lbeauty.career;
 
-import com.paulim.lbeauty.model.Career;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
