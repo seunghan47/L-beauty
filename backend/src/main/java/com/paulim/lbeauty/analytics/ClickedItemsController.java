@@ -1,5 +1,6 @@
 package com.paulim.lbeauty.analytics;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,8 @@ public class ClickedItemsController {
         this.clickedItemsService = clickedItemsService;
     }
 
-    @PostMapping("/clicked")
-    public ResponseEntity<ClickedItems> saveItem(@RequestBody ClickedItems clickedItems){
-
+    @PostMapping
+    public ResponseEntity<ClickedItems> saveItem(@Valid @RequestBody ClickedItems clickedItems) {
         ClickedItems saved = clickedItemsService.save(clickedItems);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
