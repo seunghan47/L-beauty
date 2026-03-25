@@ -3,6 +3,9 @@ package com.paulim.lbeauty.analytics;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
@@ -11,10 +14,15 @@ public class ClickedItems {
     @Id
     @GeneratedValue
     private long id;
+    @NotBlank(message = "Item name is required")
     private String name;
-    private String upc;
-    private LocalDate date;
 
+    @NotBlank(message = "UPC is required")
+    @Size(min = 12, max = 13, message = "UPC must be 12 or 13 digits")
+    private String upc;
+
+    @NotNull(message = "Date is required")
+    private LocalDate date;
     public ClickedItems() {
     }
 
@@ -47,4 +55,5 @@ public class ClickedItems {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 }
