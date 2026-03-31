@@ -1,100 +1,34 @@
 package com.paulim.lbeauty.inventory;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
-@Table
+@Table(name = "inventory")
+@Data
 public class Inventory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
-    String UPC;
-    String name;
-    String price;
-    String category;
-    String brand;
-    Double rating;
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "Auto-generated database ID")
+    private long id;
 
-    public Inventory(String UPC, String name, String price, String category, String brand, double rating) {
-        this.UPC = UPC;
-        this.name = name;
-        this.price = price;
-        this.category = category;
-        this.brand = brand;
-        this.rating = rating;
-    }
+    @Schema(example = "880123456789", description = "The 12 or 13 digit barcode/UPC of the product")
+    private String UPC;
 
-    public Inventory(String UPC, String name, String price) {
-        this.UPC = UPC;
-        this.name = name;
-        this.price = price;
-    }
+    @Schema(example = "Silk Therapy Shampoo", description = "The full name of the beauty product")
+    private String name;
 
-    public double getRating() {
-        return rating;
-    }
+    @Schema(example = "15.99", description = "Retail price of the item")
+    private String price;
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
+    @Schema(example = "Shampoo", description = "Category of the product (e.g. Hair, Skin, Nails)")
+    private String category;
 
-    public String getBrand() {
-        return brand;
-    }
+    @Schema(example = "In Stock", description = "Current availability status")
+    private String status;
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUPC() {
-        return UPC;
-    }
-
-    public void setUPC(String UPC) {
-        this.UPC = UPC;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public Inventory() {
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
+    @Schema(example = "https://s3.amazon.com/lbeauty/shampoo.jpg", description = "S3 URL for the product image")
+    private String imageUrl;
 }
