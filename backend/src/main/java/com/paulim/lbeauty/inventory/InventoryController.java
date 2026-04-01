@@ -8,12 +8,11 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/inventory") // Changed from /api/search to be more RESTful
+@RequestMapping("/api/inventory")
 public class InventoryController {
 
     private final InventoryService inventoryService;
 
-    // Standard practice: Constructor injection
     public InventoryController(InventoryService inventoryService) {
         this.inventoryService = inventoryService;
     }

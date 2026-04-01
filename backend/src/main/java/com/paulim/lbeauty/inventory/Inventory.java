@@ -2,6 +2,9 @@ package com.paulim.lbeauty.inventory;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
@@ -18,14 +21,17 @@ public class Inventory {
 
     @Column(nullable = false, unique = true, length = 20)
     @Schema(example = "880123456789", description = "The 12 or 13 digit barcode/UPC")
+    @Size(min = 12, max = 12, message = "UPC must be exactly 12 digits")
     private String upc;
 
     @Column(nullable = false)
     @Schema(example = "Silk Therapy Shampoo")
+    @NotBlank(message = "Product name is required")
     private String name;
 
     @Column(nullable = false, precision = 10, scale = 2)
     @Schema(example = "15.99", description = "Price of the item")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than zero")
     private BigDecimal price;
 
     @Schema(example = "Shampoo")
