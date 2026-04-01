@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal; // 1. Added Import
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class CollectionsController {
 
     @GetMapping("/health")
     public String health(){
-	    return "Collections Controller Working";
+        return "Collections Controller Working";
     }
 
     @GetMapping("/{category}")
@@ -29,13 +30,13 @@ public class CollectionsController {
             @PathVariable String category,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "24") int size,
-            @RequestParam(required = false) Double priceBelow,
+            @RequestParam(required = false) BigDecimal priceBelow, // 2. Changed Double to BigDecimal
             @RequestParam(required = false) String brand
     ) {
-        Page<Inventory> collection = inventoryService.findPaginatedByCategory(category, page, size, priceBelow, brand);
+        // Now this method call matches the new Service signature
+        Page<Inventory> collection = inventoryService.findFilteredAndPaginatedByCategory(category, page, size, priceBelow, brand);
         List<Inventory> items = collection.getContent();
 
         return ResponseEntity.ok(items);
     }
-
 }
