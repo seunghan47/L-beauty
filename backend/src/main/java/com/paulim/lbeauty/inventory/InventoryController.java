@@ -1,6 +1,5 @@
 package com.paulim.lbeauty.inventory;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,51 +8,36 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/search")
+@RequestMapping("/api/inventory") // Changed from /api/search to be more RESTful
 public class InventoryController {
 
-    @Autowired
-    InventoryService inventoryService;
+    private final InventoryService inventoryService;
 
-    /**
-     * retrieve all inventory items
-     * @return everything from the store in a list
-     */
+    // Standard practice: Constructor injection
+    public InventoryController(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
+    }
+
     @GetMapping("/all")
     public List<Inventory> getAll() {
         return inventoryService.getAllItems();
     }
 
-    /**
-     * testing to ensure api is reachable
-     * @return simple string
-     */
-    @GetMapping("/testing")
-    public String testing() {
-        return "GET successful!!";
-    }
-
-    /**
-     * search for inventory item case-insensitive
-     * @param term the search to look for inventory item
-     * @return list of matching inventory
-     */
     @GetMapping("/query")
     public ResponseEntity<List<Inventory>> searchItems(@RequestParam String term) {
         List<Inventory> inventory = inventoryService.findByNameContainingIgnoreCase(term);
 
         if (inventory.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(inventory);
+            return ResponseEntity.noContent().build(); // Standard REST: 204 No Content if empty
         }
 
         return ResponseEntity.ok(inventory);
     }
 
-
-
-    @ExceptionHandler
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(" unexpected error has occurred " + ex.getMessage());
+        // In a real app, you'd use a Logger here
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("An unexpected error occurred: " + ex.getMessage());
     }
 }

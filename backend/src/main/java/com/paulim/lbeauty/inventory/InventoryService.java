@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal; // Import BigDecimal
 import java.util.List;
 
 @Service
@@ -20,15 +21,12 @@ public class InventoryService {
     public List<Inventory> getAllItems() {
         return inventoryRepository.findAll();
     }
+
     public List<Inventory> findByNameContainingIgnoreCase(String name) {
         return inventoryRepository.findByNameContainingIgnoreCase(name);
     }
 
-    public Page<Inventory> findPaginatedByCategory(String category, int page, int size, Double priceBelow , String Brand) {
-        return inventoryRepository.findByCategory(category, PageRequest.of(page, size));
-    }
-
-    public Page<Inventory> findFilteredAndPaginatedByCategory(String category, int page, int size, Double priceBelow , String brand) {
+    public Page<Inventory> findFilteredAndPaginatedByCategory(String category, int page, int size, BigDecimal priceBelow, String brand) {
         PageRequest pageable = PageRequest.of(page, size);
 
         if (priceBelow != null && brand != null) {
@@ -40,6 +38,5 @@ public class InventoryService {
         } else {
             return inventoryRepository.findByCategory(category, pageable);
         }
-
     }
 }
