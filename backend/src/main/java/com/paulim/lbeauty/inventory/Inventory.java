@@ -2,6 +2,10 @@ package com.paulim.lbeauty.inventory;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "inventory")
@@ -10,16 +14,19 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "Auto-generated database ID")
-    private long id;
+    private Long id; // Changed to Long (wrapper) to allow nulls before save
 
+    @Column(nullable = false, unique = true, length = 20)
     @Schema(example = "880123456789", description = "The 12 or 13 digit barcode/UPC")
-    private String UPC;
+    private String upc;
 
+    @Column(nullable = false)
     @Schema(example = "Silk Therapy Shampoo")
     private String name;
 
-    @Schema(example = "15.99")
-    private String price;
+    @Column(nullable = false, precision = 10, scale = 2)
+    @Schema(example = "15.99", description = "Price of the item")
+    private BigDecimal price;
 
     @Schema(example = "Shampoo")
     private String category;
@@ -30,19 +37,29 @@ public class Inventory {
     @Schema(example = "4.5")
     private double rating;
 
-    // 1. Required No-Args Constructor for JPA
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    private LocalDateTime updatedAt;
+
+    // 1. Required No-Args Constructor
     public Inventory() {}
 
-    // 2. Found in InventoryControllerTest: 3-arg constructor
-    public Inventory(String UPC, String name, String price) {
-        this.UPC = UPC;
+    // 2. Updated 3-arg constructor
+    public Inventory(String upc, String name, BigDecimal price) {
+        this.upc = upc;
         this.name = name;
         this.price = price;
     }
 
-    // 3. Found in InventoryServiceTest: 6-arg constructor
-    public Inventory(String UPC, String name, String price, String category, String brand, double rating) {
-        this.UPC = UPC;
+    // 3. Updated 6-arg constructor
+    public Inventory(String upc, String name, BigDecimal price, String category, String brand, double rating) {
+        this.upc = upc;
         this.name = name;
         this.price = price;
         this.category = category;
@@ -50,18 +67,17 @@ public class Inventory {
         this.rating = rating;
     }
 
-    // Explicit Getters and Setters to fix "cannot find symbol: method getName()"
-    public long getId() { return id; }
-    public void setId(long id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public String getUPC() { return UPC; }
-    public void setUPC(String UPC) { this.UPC = UPC; }
+    public String getUpc() { return upc; }
+    public void setUpc(String upc) { this.upc = upc; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public String getPrice() { return price; }
-    public void setPrice(String price) { this.price = price; }
+    public BigDecimal getPrice() { return price; }
+    public void setPrice(BigDecimal price) { this.price = price; }
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
@@ -71,4 +87,7 @@ public class Inventory {
 
     public double getRating() { return rating; }
     public void setRating(double rating) { this.rating = rating; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
 }
