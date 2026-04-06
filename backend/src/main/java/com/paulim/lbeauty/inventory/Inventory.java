@@ -2,16 +2,19 @@ package com.paulim.lbeauty.inventory;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "inventory")
+@SQLDelete(sql = "UPDATE inventory SET is_deleted = true WHERE id=?")
+@SQLRestriction("is_deleted = false")
 public class Inventory {
 
     @Id
@@ -52,6 +55,9 @@ public class Inventory {
     @Column(name = "updated_at")
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime updatedAt;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted = false;
 
     // 1. Required No-Args Constructor
     public Inventory() {}
