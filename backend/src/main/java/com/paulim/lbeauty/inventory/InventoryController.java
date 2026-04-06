@@ -38,4 +38,10 @@ public class InventoryController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("An unexpected error occurred: " + ex.getMessage());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+        inventoryService.deleteItem(id);
+        return ResponseEntity.noContent().build(); // 204 No Content is standard for successful deletes
+    }
 }

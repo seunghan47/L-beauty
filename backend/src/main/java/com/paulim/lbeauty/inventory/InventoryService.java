@@ -1,5 +1,6 @@
 package com.paulim.lbeauty.inventory;
 
+import com.paulim.lbeauty.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,5 +39,12 @@ public class InventoryService {
         } else {
             return inventoryRepository.findByCategory(category, pageable);
         }
+    }
+
+    public void deleteItem(Long id) {
+        if (!inventoryRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Cannot delete. Product with ID " + id + " not found.");
+        }
+        inventoryRepository.deleteById(id);
     }
 }
