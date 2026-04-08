@@ -19,14 +19,6 @@ public class InventoryService {
         this.inventoryRepository = inventoryRepository;
     }
 
-    public List<Inventory> getAllItems() {
-        return inventoryRepository.findAll();
-    }
-
-    public List<Inventory> findByNameContainingIgnoreCase(String name) {
-        return inventoryRepository.findByNameContainingIgnoreCase(name);
-    }
-
     public Page<Inventory> findFilteredAndPaginatedByCategory(String category, int page, int size, BigDecimal priceBelow, String brand) {
         PageRequest pageable = PageRequest.of(page, size);
 
@@ -46,5 +38,33 @@ public class InventoryService {
             throw new ResourceNotFoundException("Cannot delete. Product with ID " + id + " not found.");
         }
         inventoryRepository.deleteById(id);
+    }
+
+    // Inside InventoryService.java
+
+    public List<InventoryResponseDTO> getAllItems() {
+        return inventoryRepository.findAll()
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
+    }
+
+    public List<InventoryResponseDTO> findByNameContainingIgnoreCase(String name) {
+        return inventoryRepository.findByNameContainingIgnoreCase(name)
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
+    }
+
+    private InventoryResponseDTO convertToDTO(Inventory inventory) {
+        return new InventoryResponseDTO(
+                inventory.getId(),
+                inventory.getUpc(),
+                inventory.getName(),
+                inventory.getPrice(),
+                inventory.getCategory(),
+                inventory.getBrand(),
+                inventory.getRating()
+        );
     }
 }

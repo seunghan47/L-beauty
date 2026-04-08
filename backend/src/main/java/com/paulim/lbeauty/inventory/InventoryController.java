@@ -17,19 +17,20 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
+    // Inside InventoryController.java
+
     @GetMapping("/all")
-    public List<Inventory> getAll() {
+    public List<InventoryResponseDTO> getAll() {
         return inventoryService.getAllItems();
     }
 
     @GetMapping("/query")
-    public ResponseEntity<List<Inventory>> searchItems(@RequestParam String term) {
-        List<Inventory> inventory = inventoryService.findByNameContainingIgnoreCase(term);
+    public ResponseEntity<List<InventoryResponseDTO>> searchItems(@RequestParam String term) {
+        List<InventoryResponseDTO> inventory = inventoryService.findByNameContainingIgnoreCase(term);
 
         if (inventory.isEmpty()) {
-            return ResponseEntity.noContent().build(); // Standard REST: 204 No Content if empty
+            return ResponseEntity.noContent().build();
         }
-
         return ResponseEntity.ok(inventory);
     }
 
