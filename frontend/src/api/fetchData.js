@@ -1,17 +1,22 @@
-const BASE_URL = "http://localhost:8081";
+const BASE_URL = "http://localhost:8080/api";
 
 const fetchData = async (endpoint = "", options = {}) => {
+  let url = `${BASE_URL}/${endpoint}`;
+
+  if (options.params) {
+    const queryParams = new URLSearchParams(options.params).toString();
+    url += `?${queryParams}`;
+  }
+
   try {
-    const response = await fetch(`${BASE_URL}/${endpoint}`, options);
+    const response = await fetch(url, options);
     if (!response.ok) {
+      if (response.status === 401) console.warn("Authentication Required!");
       throw new Error(`HTTP ERROR: ${response.status}`);
     }
-    const data = await response.json();
-    console.log(data);
-    return data;
+    return await response.json();
   } catch (error) {
-    console.error("Error: " + error);
+    console.error("Fetch Error: ", error);
+    throw error;
   }
 };
-
-export default fetchData;
