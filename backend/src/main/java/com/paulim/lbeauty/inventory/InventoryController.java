@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -17,7 +18,15 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
-    // Inside InventoryController.java
+    @GetMapping("/search")
+    public ResponseEntity<List<InventoryResponseDTO>> search(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String brand,
+            @RequestParam(required = false) BigDecimal maxPrice) {
+
+        List<InventoryResponseDTO> results = inventoryService.searchInventory(category, brand, maxPrice);
+        return ResponseEntity.ok(results);
+    }
 
     @GetMapping("/all")
     public List<InventoryResponseDTO> getAll() {

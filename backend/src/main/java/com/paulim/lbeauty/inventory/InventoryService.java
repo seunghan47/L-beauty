@@ -4,6 +4,7 @@ import com.paulim.lbeauty.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal; // Import BigDecimal
@@ -40,7 +41,17 @@ public class InventoryService {
         inventoryRepository.deleteById(id);
     }
 
-    // Inside InventoryService.java
+    // Add to your existing InventoryService
+    public List<InventoryResponseDTO> searchInventory(String category, String brand, BigDecimal maxPrice) {
+        Specification<Inventory> spec = Specification.where(InventorySpecifications.hasCategory(category))
+                .and(InventorySpecifications.hasBrand(brand))
+                .and(InventorySpecifications.priceLessThan(maxPrice));
+
+        return inventoryRepository.findAll(spec)
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
+    }
 
     public List<InventoryResponseDTO> getAllItems() {
         return inventoryRepository.findAll()
