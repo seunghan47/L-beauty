@@ -38,19 +38,14 @@ public class InventoryServiceTest {
 
     @Test
     public void searchInventory_ShouldReturnMappedDTOs_WhenMatchesExist() {
-        // 1. ARRANGE: Tell the Mock Repository what to return
-        // We use any(Specification.class) because we don't need to test the Spec itself here
         when(inventoryRepository.findAll(any(Specification.class)))
                 .thenReturn(List.of(sampleItem));
 
-        // 2. ACT: Call the service method
         List<InventoryResponseDTO> results = inventoryService.searchInventory("Skincare", "Seoul Skin", new BigDecimal("30.00"));
 
-        // 3. ASSERT: Verify the outcome
         assertEquals(1, results.size(), "Should return exactly 1 item");
         assertEquals("Glow Serum", results.get(0).name());
 
-        // Verify the repository was actually called
         verify(inventoryRepository, times(1)).findAll(any(Specification.class));
     }
 }
