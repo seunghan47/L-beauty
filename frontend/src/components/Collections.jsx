@@ -14,9 +14,7 @@ const Collections = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const response = await fetch(
-          `https://api2.lbeautysupplies.com/collections/${category}?page=${page}&size=${size}`
-        );
+        const response = await fetch(`http://localhost:8080/api/collections/${category}?page=${page}&size=${size}`);
         if (!response.ok) {
           throw new Error(`HTTP response: ${response.status}`);
         }

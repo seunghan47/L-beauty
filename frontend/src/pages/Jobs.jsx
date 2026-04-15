@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // const url = "http://localhost:8082/career/addCareer";
 // const url = "http://3.82.48.51:8080/career/addCareer";
-const url = "https://api2.lbeautysupplies.com/career/addCareer";
+const url = "http://localhost:8080/api/career/addCareer";
 
 const Jobs = () => {
   const navigate = useNavigate();

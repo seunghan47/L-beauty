@@ -25,7 +25,7 @@ const SearchBar = () => {
       // const response = await fetch(`https://api.lbeautysupplies.com/search/query?term=${query}`);
       // const response = await fetch(`http://localhost:8081/search/query?term=${query}`);
       // const response = await fetch(`http://54.167.105.44:8080/search/query?term=${query}`);
-      const response = await fetch(`https://api2.lbeautysupplies.com/search/query?term=${query}`);
+      const response = await fetch(`http://localhost:8080/api/search/query?term=${query}`);
       if (!response.ok) {
         throw new Error("Failed to fetch from backend");
       }
