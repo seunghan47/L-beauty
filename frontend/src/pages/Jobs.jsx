@@ -21,7 +21,7 @@ const Jobs = () => {
       [id]: value,
     }));
   }
-
+  //
   async function postingForm(e) {
     e.preventDefault();
 
@@ -37,7 +37,7 @@ const Jobs = () => {
         throw new Error("Failed sending form");
       }
       const responseData = await response.json();
-      alert("Form sent, we will get back to you shortly");
+      alert("Form sent, we will get back to you shortly ");
       console.log(responseData);
       navigate("/");
     } catch (error) {
