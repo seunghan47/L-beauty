@@ -8,6 +8,7 @@ target/
 # Ignore the application.properties file
 src/main/resources/keystore.p12
 src/main/resources/application.properties
+src/main/resources/inventory.csv
 
 ### STS ###
 .apt_generated
