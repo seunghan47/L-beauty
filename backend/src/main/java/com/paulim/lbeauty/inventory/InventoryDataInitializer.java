@@ -39,11 +39,25 @@ public class InventoryDataInitializer implements CommandLineRunner {
                 Inventory item = new Inventory();
                 item.setUpc(record.getUpc());
                 item.setName(record.getName());
-                item.setPrice(new BigDecimal(record.getPrice()));
-
                 item.setBrand("L-Beauty Generic");
                 item.setCategory("Uncategorized");
                 item.setDeleted(false);
+
+                try {
+                    String priceStr = record.getPrice();
+                    if (priceStr == null) {
+                        item.setPrice(new BigDecimal("10.00"));
+                    } else {
+                        String cleanPrice = priceStr.replaceAll("[^\\d.]", "");
+                        if (cleanPrice.isEmpty() || cleanPrice.equals(".")) {
+                            item.setPrice(new BigDecimal("10.00"));
+                        } else {
+                            item.setPrice(new BigDecimal(cleanPrice));
+                        }
+                    }
+                } catch (Exception e) {
+                    item.setPrice(new BigDecimal("10.00"));
+                }
 
                 return item;
             }).toList();
@@ -55,4 +69,3 @@ public class InventoryDataInitializer implements CommandLineRunner {
         }
     }
 }
-
