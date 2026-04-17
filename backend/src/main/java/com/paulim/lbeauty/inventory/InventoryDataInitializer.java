@@ -43,7 +43,7 @@ public class InventoryDataInitializer implements CommandLineRunner {
 
                 item.setBrand("L-Beauty Generic");
                 item.setCategory("Uncategorized");
-                item.setIsDeleted(false);
+                item.setDeleted(false);
 
                 return item;
             }).toList();
