@@ -24,7 +24,7 @@ public class Inventory {
 
     @Column(nullable = false, unique = true, length = 20)
     @Schema(example = "880123456789", description = "The 12 or 13 digit barcode/UPC")
-    @Size(min = 12, max = 12, message = "UPC must be exactly 12 digits")
+    @Size(min = 12, max = 13, message = "UPC must be exactly 12 digits")
     private String upc;
 
     @Column(nullable = false)
