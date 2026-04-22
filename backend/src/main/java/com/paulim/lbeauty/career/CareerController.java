@@ -2,6 +2,7 @@ package com.paulim.lbeauty.career;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,7 @@ public class CareerController {
 
     @Operation(summary = "Submit a job application", description = "Saves user contact info and a message to the database for hiring review.")
     @PostMapping("/addCareer")
-    public ResponseEntity<Career> addJob(@RequestBody Career career) {
-        System.out.println("Career object received: " + career);
+    public ResponseEntity<Career> addJob(@Valid @RequestBody Career career) {
         Career savedCareer = careerService.save(career);
         return new ResponseEntity<>(savedCareer, HttpStatus.CREATED);
     }
