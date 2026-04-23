@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import styles from "./Jobs.module.css";
 import { useNavigate } from "react-router-dom";
 
-// const url = "http://localhost:8082/career/addCareer";
-// const url = "http://3.82.48.51:8080/career/addCareer";
-const url = "http://localhost:8080/api/career/addCareer";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8080/api";
+const url = `${API_BASE_URL}/career/addCareer`;
 
 const Jobs = () => {
   const navigate = useNavigate();
