@@ -35,32 +35,35 @@ public class InventoryDataInitializer implements CommandLineRunner {
                     .build()
                     .parse();
 
-            List<Inventory> inventoryList = records.stream().map(record -> {
-                Inventory item = new Inventory();
-                item.setUpc(record.getUpc());
-                item.setName(record.getName());
-                item.setBrand("L-Beauty Generic");
-                item.setCategory("Uncategorized");
-                item.setDeleted(false);
+            List<Inventory> inventoryList = records.stream()
+                    // NEW: Filter out records with empty or null UPCs to avoid unique constraint violations
+                    .filter(record -> record.getUpc() != null && !record.getUpc().trim().isEmpty())
+                    .map(record -> {
+                        Inventory item = new Inventory();
+                        item.setUpc(record.getUpc().trim());
+                        item.setName(record.getName());
+                        item.setBrand("L-Beauty Generic");
+                        item.setCategory("Uncategorized");
+                        item.setDeleted(false);
 
-                try {
-                    String priceStr = record.getPrice();
-                    if (priceStr == null) {
-                        item.setPrice(new BigDecimal("10.00"));
-                    } else {
-                        String cleanPrice = priceStr.replaceAll("[^\\d.]", "");
-                        if (cleanPrice.isEmpty() || cleanPrice.equals(".")) {
+                        try {
+                            String priceStr = record.getPrice();
+                            if (priceStr == null) {
+                                item.setPrice(new BigDecimal("10.00"));
+                            } else {
+                                String cleanPrice = priceStr.replaceAll("[^\\d.]", "");
+                                if (cleanPrice.isEmpty() || cleanPrice.equals(".")) {
+                                    item.setPrice(new BigDecimal("10.00"));
+                                } else {
+                                    item.setPrice(new BigDecimal(cleanPrice));
+                                }
+                            }
+                        } catch (Exception e) {
                             item.setPrice(new BigDecimal("10.00"));
-                        } else {
-                            item.setPrice(new BigDecimal(cleanPrice));
                         }
-                    }
-                } catch (Exception e) {
-                    item.setPrice(new BigDecimal("10.00"));
-                }
 
-                return item;
-            }).toList();
+                        return item;
+                    }).toList();
 
             inventoryRepository.saveAll(inventoryList);
             log.info("Successfully imported {} items into the database!", inventoryList.size());
