@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -35,9 +37,11 @@ public class InventoryDataInitializer implements CommandLineRunner {
                     .build()
                     .parse();
 
+            Set<String> seenUpcs = new HashSet<>();
+
             List<Inventory> inventoryList = records.stream()
-                    // NEW: Filter out records with empty or null UPCs to avoid unique constraint violations
                     .filter(record -> record.getUpc() != null && !record.getUpc().trim().isEmpty())
+                    .filter(record -> seenUpcs.add(record.getUpc().trim()))
                     .map(record -> {
                         Inventory item = new Inventory();
                         item.setUpc(record.getUpc().trim());
@@ -66,7 +70,8 @@ public class InventoryDataInitializer implements CommandLineRunner {
                     }).toList();
 
             inventoryRepository.saveAll(inventoryList);
-            log.info("Successfully imported {} items into the database!", inventoryList.size());
+            log.info("Successfully imported {} unique items into the database!", inventoryList.size());
+
         } catch (Exception e) {
             log.error("Failed to import inventory data: ", e);
         }
