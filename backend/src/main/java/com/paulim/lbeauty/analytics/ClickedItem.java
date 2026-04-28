@@ -23,18 +23,13 @@ public class ClickedItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotBlank(message = "Item name is required")
     private String name;
 
-    @NotBlank(message = "UPC is required")
-    @Size(min = 12, max = 13, message = "UPC must be 12 or 13 digits")
     private String upc;
 
     @CreationTimestamp
-    @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @NotNull(message = "Date is required")
     private LocalDate date;
 
 }
