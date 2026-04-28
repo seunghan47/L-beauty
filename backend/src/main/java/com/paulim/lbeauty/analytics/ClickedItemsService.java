@@ -13,7 +13,7 @@ public class ClickedItemsService {
         this.clickedItemsRepository = clickedItemsRepository;
     }
 
-    public ClickedItems save(ClickedItems clickedItems) {
+    public ClickedItem save(ClickedItem clickedItems) {
 
         return clickedItemsRepository.save(clickedItems);
     }

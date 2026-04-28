@@ -16,8 +16,8 @@ public class ClickedItemsController {
     }
 
     @PostMapping
-    public ResponseEntity<ClickedItems> saveItem(@Valid @RequestBody ClickedItems clickedItems) {
-        ClickedItems saved = clickedItemsService.save(clickedItems);
+    public ResponseEntity<ClickedItem> saveItem(@Valid @RequestBody ClickedItem clickedItems) {
+        ClickedItem saved = clickedItemsService.save(clickedItems);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 }

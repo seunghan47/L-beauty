@@ -1,18 +1,19 @@
 package com.paulim.lbeauty.analytics;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
-public class ClickedItems {
+@Table(name = "clicked_items")
+public class ClickedItem {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank(message = "Item name is required")
     private String name;
@@ -21,12 +22,17 @@ public class ClickedItems {
     @Size(min = 12, max = 13, message = "UPC must be 12 or 13 digits")
     private String upc;
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
     @NotNull(message = "Date is required")
     private LocalDate date;
-    public ClickedItems() {
+
+    public ClickedItem() {
     }
 
-    public ClickedItems(String name, String upc, LocalDate date) {
+    public ClickedItem(String name, String upc, LocalDate date) {
         this.name = name;
         this.upc = upc;
         this.date = date;
