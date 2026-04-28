@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/clicked")
-public class ClickedItemsController {
-    private final ClickedItemsService clickedItemsService;
+public class ClickedItemController {
+    private final ClickedItemService clickedItemsService;
 
-    ClickedItemsController(ClickedItemsService clickedItemsService) {
+    ClickedItemController(ClickedItemService clickedItemsService) {
         this.clickedItemsService = clickedItemsService;
     }
 

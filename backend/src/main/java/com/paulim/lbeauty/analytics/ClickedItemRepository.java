@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClickedItemsRepository extends JpaRepository<ClickedItem, Long> {
+public interface ClickedItemRepository extends JpaRepository<ClickedItem, Long> {
 }
