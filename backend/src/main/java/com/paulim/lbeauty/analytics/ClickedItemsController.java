@@ -16,9 +16,19 @@ public class ClickedItemsController {
     }
 
     @PostMapping
-    public ResponseEntity<ClickedItem> trackClick(@Valid @RequestBody ClickedItemRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(clickedItemsService.save(request));
+    public ResponseEntity<ClickedItemResponse> trackClick(@Valid @RequestBody ClickedItemRequest request) {
+
+        ClickedItem saved = clickedItemsService.save(request);
+
+        ClickedItemResponse response = new ClickedItemResponse(
+                saved.getId(),
+                saved.getName(),
+                saved.getUpc(),
+                saved.getCreatedAt(),
+                saved.getDate()
+        );
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
 }
