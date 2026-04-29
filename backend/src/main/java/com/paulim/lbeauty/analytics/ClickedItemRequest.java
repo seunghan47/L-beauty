@@ -10,7 +10,7 @@ public class ClickedItemRequest {
     private String name;
 
     @NotBlank(message = "UPC is required")
-    @Size(min = 1, max = 13, message = "UPC must be 12 or 13 digits")
+    @Size(min = 1, max = 13, message = "UPC must be 1 to 13 digits")
     private String upc;
 
 
