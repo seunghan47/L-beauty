@@ -1,8 +1,8 @@
 CREATE TABLE inventory (
     id BIGINT NOT NULL AUTO_INCREMENT,
-    upc VARCHAR(20) NOT NULL UNIQUE, -- UPCs are usually short and must be unique
+    upc VARCHAR(20) NOT NULL UNIQUE,
     name VARCHAR(255) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,    -- Supports up to $99,999,999.99
+    price DECIMAL(10, 2) NOT NULL,
     category VARCHAR(100),
     brand VARCHAR(100),
     rating DOUBLE DEFAULT 0.0,
