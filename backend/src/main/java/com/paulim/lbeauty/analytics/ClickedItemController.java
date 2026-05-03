@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/clicked")
@@ -29,6 +31,12 @@ public class ClickedItemController {
         );
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ClickedItemResponse>> getAllClickedItems() {
+        List<ClickedItemResponse> response = clickedItemsService.getAll();
+        return ResponseEntity.ok(response);
     }
 
 }
