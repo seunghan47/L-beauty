@@ -1,1 +1,0 @@
-ALTER TABLE inventory ADD COLUMN is_deleted BOOLEAN DEFAULT FALSE;
