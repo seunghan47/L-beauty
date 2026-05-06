@@ -1,22 +1,19 @@
-const BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || "http://localhost:8080/api").replace(/\/$/, "");
 
-const fetchData = async (endpoint = "", options = {}) => {
-  let url = `${BASE_URL}/${endpoint}`;
+async function fetchData(endpoint, options = {}) {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+    ...options,
+  });
 
-  if (options.params) {
-    const queryParams = new URLSearchParams(options.params).toString();
-    url += `?${queryParams}`;
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  try {
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      if (response.status === 401) console.warn("Authentication Required!");
-      throw new Error(`HTTP ERROR: ${response.status}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Fetch Error: ", error);
-    throw error;
-  }
-};
+  return response.json();
+}
+
+export default fetchData;
