@@ -41,7 +41,6 @@ public class InventoryService {
         inventoryRepository.deleteById(id);
     }
 
-    // Add to your existing InventoryService
     public List<InventoryResponseDTO> searchInventory(String category, String brand, BigDecimal maxPrice) {
         Specification<Inventory> spec = Specification.where(InventorySpecifications.hasCategory(category))
                 .and(InventorySpecifications.hasBrand(brand))
