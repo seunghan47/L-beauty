@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Jobs.module.css";
 import { useNavigate } from "react-router-dom";
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8080/api";
-const url = `${API_BASE_URL}/career/addCareer`;
+import fetchData from "../api/fetchData";
 
 const Jobs = () => {
   const navigate = useNavigate();
@@ -25,17 +23,11 @@ const Jobs = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(url, {
+      const responseData = await fetchData("/career/addCareer", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(formdata),
       });
-      if (!response.ok) {
-        throw new Error("Failed sending form");
-      }
-      const responseData = await response.json();
+
       alert("Form sent, we will get back to you shortly ");
       console.log(responseData);
       navigate("/");

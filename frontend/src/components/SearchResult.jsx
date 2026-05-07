@@ -1,42 +1,30 @@
 import styles from "./SearchResult.module.css";
 import { Link } from "react-router-dom";
-
-// const url = "http://localhost:8080/clicked/clicked";
-// const url = "http://3.82.48.51:8080/clicked/clicked";
+import fetchData from "../api/fetchData";
 
 const SearchResult = ({ results }) => {
   const sendClicks = async (result) => {
-    const now = new Date().toISOString();
-    // const url = "https://api.lbeautysupplies.com/clicked/clicked";
-    const url = "http://localhost:8080/api/clicked/clicked";
-    // const url = "http://localhost:8081/clicked/clicked";
-
     try {
-      const response = await fetch(url, {
+      await fetchData("/clicked/clicked", {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
         body: JSON.stringify({
           upc: result.upc,
           name: result.name,
-          date: now,
+          date: new Date().toISOString(),
         }),
       });
-      if (!response.ok) {
-        throw new Error('failed to send result "SearchResult.jsx"');
-      }
+
       console.log(`Sent ${result.name} successfully`);
     } catch (error) {
-      console.log(`Failing to POST to backend. + ${url}`);
+      console.error("Failed to POST clicked item:", error.message);
     }
   };
 
   return (
     <div className={styles.search_result}>
-      {results.map((result, index) => (
-        <Link to={`/products/${result.upc}`} key={index} onClick={() => sendClicks(result)}>
-          <li> {result.name}</li>
+      {results.map((result) => (
+        <Link to={`/products/${result.upc}`} key={result.upc} onClick={() => sendClicks(result)}>
+          <li>{result.name}</li>
         </Link>
       ))}
     </div>
