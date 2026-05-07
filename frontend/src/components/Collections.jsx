@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./Collections.module.css";
 import Sidebar from "./SideBar";
+import fetchData from "../api/fetchData";
 
 const Collections = () => {
   const { category } = useParams();
@@ -14,14 +15,10 @@ const Collections = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/collections/${category}?page=${page}&size=${size}`);
-        if (!response.ok) {
-          throw new Error(`HTTP response: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await fetchData(`/collections/${category}?page=${page}&size=${size}`);
         setProducts(data);
       } catch (error) {
-        console.error("error: " + error);
+        console.error("Failed to fetch collections:", error.message);
         setProducts([]);
       }
     };
