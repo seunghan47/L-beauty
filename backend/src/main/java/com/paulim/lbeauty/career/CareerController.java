@@ -20,14 +20,14 @@ public class CareerController {
     private CareerService careerService;
 
     @Operation(summary = "Submit a job application", description = "Saves user contact info and a message to the database for hiring review.")
-    @PostMapping("/addCareer")
+    @PostMapping()
     public ResponseEntity<Career> addJob(@Valid @RequestBody Career career) {
         Career savedCareer = careerService.save(career);
         return new ResponseEntity<>(savedCareer, HttpStatus.CREATED);
     }
 
     @Operation(summary = "Get all applications", description = "Retrieves a full list of all submitted career inquiries from the database.")
-    @GetMapping("/getAll")
+    @GetMapping()
     public ResponseEntity<List<Career>> getAll() {
         List<Career> careerList = careerService.getAll();
         return new ResponseEntity<>(careerList, HttpStatus.OK);
